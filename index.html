@@ -8,140 +8,125 @@
 </head>
 <body>
 
-	<style>
-		p{
-
-		}
-	</style>
 	
-
 
 	<script>
 
 /*
-		var b = "";
-		var c = null;
-		console.log(d);
+		var a = ["13", "213"];
+		var b = Array(13, 213);
 
 
-		var a = prompt("введите число");
-
-		console.log(typeof(a));
+		var colors = [];
 
 
 
 
+		var i = 0;
 
-		if(a > 0){
-			// больше
-			alert("больше");
-		}
-		else{
-			// меньше || равно
-			if(a < 0){
-				alert("меньше");
-			}
-			else{
-				alert("равно 0");
-			}
-		}
-*/
-/*
-		if(a > 0){
-			// больше
-			alert("больше");
-		}
-		else if(a < 0){
-			alert("меньше");
-		}
-		else{
-			alert("равно 0");
-		}
-*/
-
-		// запросить у пользователя цвет (ввиде строки) red/green/blue
-		// вывести в консоль этот цвет в rgb
-
-
-		//var color = prompt("введите цвет");
-/*
-		color = color.trim();
-
-		if(color == "red"){
-			console.log("#f00");
-		}
-		else{
-			if(color == "green"){
-				console.log("#0f0");
-			}
-			else{
-				if(color == "blue"){
-					console.log("#00f");
-				}
-				else{
-					console.log("Другое значение");
-				}
-			}
-		}*/
-		/*
-		switch(color){
-			case "red": console.log("#f00"); break;
-			case "green": console.log("#0f0"); break;
-			case "blue": console.log("#00f"); break;
-			default: console.log("Другое значение"); break;
-		}
-		*/
-
-		// $day = "п";
-		// switch($day){
-		// 	case "п": 
-		// 	case "в":
-		// 	case "с":
-		// 	case "ч":
-		// 	case "пт": console.log("работа"); break;
-		// 	case "суб": 
-		// 	case "вс": console.log("выходное"); break;
-		// }
-
-
-		// var num = 1;
-
-		// while(num <= 10){
-
-		// 	if(num != 5){
-		// 		console.log(num);
-		// 	}
-		// 	num = num + 1;
-		// }
-
-
-
-
-		// var str;
-
-		// var author = true;
-
-		// while(true){
-		// 	str = prompt("введите строку");
-		// 	if(author){
-		// 		console.log(`- (я) ${str}`);
-		// 		author = false;
-		// 	}
-		// 	else{
-		// 		console.log(`- (бот) ${str}`);
-		// 		author = true;
-		// 	}
+		while(true){
 			
-		// 	if(str == 0){
-		// 		break;
-		// 	}
-		// }
+			var str = prompt();
 
+			if(str == 0){
+				break;
+			}
 
-
-
+			colors[i] = str;
+			i = i + 1;
+			console.log(colors);
+		}
 		
 
+
+
+		*/
+
+/*
+		var answers = ["Да", "Нет", "Не знаю"];
+
+		while(true){
+
+			var question = prompt("Мой вопрос");
+
+			if(question == 0){
+				break;
+			}
+
+			console.log(`-(я) ${question}`);
+		
+			console.log(`-(бот) ${answers[Math.floor(Math.random() * 3)]}`);
+		}
+*/
+
+/*
+		создать переписку двух ботов
+		максимальное количество сообщений = 10
+*/
+/*
+		var msgBot_1 = ["Да", "Нет", "Не знаю"];
+		var msgBot_2 = ["Да", "Нет", "Не знаю"];
+
+		var i = 0;
+		while(i < 10){
+
+			console.log(`-(бот 1) ${msgBot_1[Math.floor(Math.random() * 3)]}`);
+			console.log(`-(бот 2) ${msgBot_2[Math.floor(Math.random() * 3)]}`);
+		
+			i = i + 1;
+
+			if(Math.floor(Math.random() * 2) == 1){
+				break;
+			}
+		}
+*/
+
+
+/*
+		var colors = [];
+		var i = 0;
+		while(true){
+			var str = prompt();
+			var j = 0;
+			var flag = false;
+
+			while(j < colors.length){
+				if(colors[j] == str){
+					flag = true;
+					break;
+				}
+				j = j + 1;
+			}
+
+			if(flag == false){
+				colors[i] = str;
+			}
+
+			if(str == 0){
+				break;
+			}
+
+			i = i + 1;
+			console.log(colors);
+		}
+*/
+/*
+		var colors = [];
+
+		while(true){
+			var str = prompt();
+
+			if(!colors.includes(str)){
+				colors.push(str);
+			}
+
+			if(str == 0){
+				break;
+			}
+
+			console.log(colors);
+		}
+*/
 	</script>
 
 
