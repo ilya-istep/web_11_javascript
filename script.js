@@ -1,10 +1,10 @@
 'use strict';
 
 /*
-HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
-HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
-HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
-HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
 
 let personeName = 'Human';
 let botName     = 'Bot';
@@ -29,40 +29,11 @@ for(let index = 0; index >= 0; index++) {
 
   }
 
-HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
-HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
-HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
-HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
 } */
-
-
-let colors = [];
-let colorsIndex = 0;
-
-while(true){
-  let color = prompt();
-  let i = 0;
-  let flag = false;
-
-  while(i < colors.length){
-    if(colors[i] == color){
-      flag = true;
-      break;
-    }
-    i = i + 1;
-  }
-
-  if(flag == false){
-    colors[colorsIndex] = color;
-  }
-
-  if(color == 0 || color == null){
-    break;
-  }
-
-  colorsIndex = colorsIndex + 1;
-  console.log(colors);
-}
 
 /*
 1) Создаем переменные:
@@ -87,3 +58,33 @@ while(true){
 6) В глобальный цикл добавляем еще одно условие:
     Если проверка нашего совпадения (flag) равна false, то мы записываем значение, что ввел пользователь в массив с цветами в индекс массива цветов (colorsIndex)
 */
+
+let colors = [];
+let colorsIndex = 0;
+
+while (true) {
+  let color = prompt();
+  let index = 0;
+  let flag = false;
+
+  while (index < colors.length) {
+    if (colors[index] == color) {
+      flag = true;
+      break;
+    }
+
+    index += 1;
+  }
+
+  if (flag == false) {
+    colors[colorsIndex] = color;
+    colorsIndex += 1;
+  }
+
+
+  if(color == 0 || color == null) {
+    break;
+  }
+
+  console.log(colors);
+}
