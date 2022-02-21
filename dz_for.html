@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Дз по циклу for</title>
+</head>
+<body>
+	<script>
+		var str;
+		for(var author = true;; author = !author){
+			str = prompt("Введите текст:");
+			if(author == true){
+				console.log(`- (я) ${str}`);
+			}
+			else{
+				console.log(`- (бот) ${str}`);
+			}
+			if(str == 0){
+				break;
+			}
+		}
+	</script>
+</body>
+</html>
