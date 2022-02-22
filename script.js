@@ -1,10 +1,10 @@
 'use strict';
 
 /*
-// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
-// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
-// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
-// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 1
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 1
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 1
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 1
 
 let personeName = 'Human';
 let botName     = 'Bot';
@@ -29,13 +29,113 @@ for(let index = 0; index >= 0; index++) {
 
   }
 
-// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
-// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
-// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
-// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 1
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 1
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 1
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 1
 } */
 
-/*
+
+
+
+
+// let massiveValues = [];
+// let massiveWords = ['первое', 'второе'];
+
+// for (let i = 0; i < 2; i += 1) {
+//   massiveValues[i] = prompt(`Введите ${massiveWords[i]} число`);
+// }
+
+// for (let i = 0; massiveValues.length; i += 1) {
+//   returnNumber(massiveValues[i]);
+// }
+
+
+// function returnNumber(num) {
+//   num = num.trim();
+
+//   if (num.length != 0) {
+//     console.log(Number(num));
+//   } else {
+//     console.log('Error');
+//   }
+// }
+
+
+
+
+// let c1 = +prompt('Введите первое число');
+// let c2 = +prompt('Введите второе число');
+// let o  = prompt('Введите операцию');
+
+// switch (o) {
+//   case '+': console.log(c1 + c2); break;
+//   case '-': console.log(c1 - c2); break;
+//   case '/': console.log(validatorD(c1, c2)); break;
+//   case '*': console.log(c1 * c2); break;
+//   default: console.log('error'); break;
+// }
+
+// function validatorD(a, b) {
+//   if (b == 0) {
+//     return 'На ноль делить нельзя';
+//   } else {
+//     return Math.floor(a / b);
+//   }
+// }
+
+
+
+
+
+// (function() {
+//   let colors = ['#f00', 'red', 'green', 'yellow', 'Red'];
+//   let counter = 0;
+  
+  
+//   let countOfRed = (array, count) => {
+//     for (count = 0; count < colors.length; count += 1) {
+//       array[count] = array[count].toLowerCase();
+    
+//       if (array[count] == 'red' || array[count] == '#f00') {
+//         counter++;
+//       }
+    
+//     }
+    
+//   };
+  
+//   countOfRed(colors, counter);
+  
+//   console.log(`Красный встречается ${counter} раз!`);
+// })();
+
+
+let a = prompt('Введите катет треугольника');
+let b = prompt('Введите второй катет треугольника');
+
+
+function triangle(a, b) {
+  let s = (a * b) / 2;
+  return s;
+}
+
+console.log(triangle(a, b));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* МАССИВЫ
 1) Создаем переменные:
   Пустой массив цветов.
   Индекс массива цветов (colorsIndex).
@@ -58,33 +158,3 @@ for(let index = 0; index >= 0; index++) {
 6) В глобальный цикл добавляем еще одно условие:
     Если проверка нашего совпадения (flag) равна false, то мы записываем значение, что ввел пользователь в массив с цветами в индекс массива цветов (colorsIndex)
 */
-
-let colors = [];
-let colorsIndex = 0;
-
-while (true) {
-  let color = prompt();
-  let index = 0;
-  let flag = false;
-
-  while (index < colors.length) {
-    if (colors[index] == color) {
-      flag = true;
-      break;
-    }
-
-    index += 1;
-  }
-
-  if (flag == false) {
-    colors[colorsIndex] = color;
-    colorsIndex += 1;
-  }
-
-
-  if(color == 0 || color == null) {
-    break;
-  }
-
-  console.log(colors);
-}
