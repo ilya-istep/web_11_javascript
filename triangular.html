@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		/*Первый вариант задачи
+
+		var fCat = Number(prompt("Введите первый катет:"));
+		var sCat = Number(prompt("Введите второй катет:"));
+		var gip = Number(prompt("Введите гипотенуза"));
+		var p;
+		var square;
+		var pif = (g, a, b)=>{
+			if(Math.pow(g, 2) == Math.pow(a, 2) + Math.pow(b, 2)){
+				p = true;
+			}
+			else{
+				p = false;
+			}
+		}
+		var sq = ()=>{
+			if(p == true){
+				square = (fCat * sCat) / 2;
+			}
+			else{
+				var height = prompt("Введите высоту");
+				square = (gip * height) / 2;
+			}
+			console.log(square);
+		}
+		pif(gip, fCat, sCat);
+		sq();*/
+
+		/*Второй вариант задачи
+
+		var firstCat = Number(prompt("Введите первый катет:"));
+		var secondCat = Number(prompt("Введите второй катет:"));
+		var angle = Number(prompt("Введите угол между катетами:"))
+		var trPrimCheck;
+		var sq;
+		var trCheck = (a)=>{
+			if(a == 90){
+				trPrimCheck = true;
+			}
+			else{
+				trPrimCheck = false;
+			}
+		}
+		var square = (a, b, ang)=>{
+			if(trPrimCheck == true){
+				sq = (a * b) / 2;
+			}
+			else{
+				var sinAngle = Math.sin(angle);
+				sq = (a * b * Math.abs(sinAngle)) / 2;
+			}
+			console.log(`Площадь треугольника ${sq}`);
+		}
+		trCheck(angle);
+		square(firstCat, secondCat, angle);*/
+
+
+		/*Попробовал сделать задание со звездочкой
+
+		var massCat = [];
+		var massCatName = ["первый", "второй"];
+		for(var i = 0; i < 2; i = i + 1){
+			massCat[i] = Number(prompt(`Введите ${massCatName[i]} катет`));
+		}
+		var angle = Number(prompt("Введите угол между катетами:"))
+		var trPrimCheck;
+		var sq;
+		var trCheck = (a)=>{
+			if(a == 90){
+				trPrimCheck = true;
+			}
+			else{
+				trPrimCheck = false;
+			}
+		}
+		var square = (a, b, ang)=>{
+			if(trPrimCheck == true){
+				sq = (a * b) / 2;
+			}
+			else{
+				var sinAngle = Math.sin(angle);
+				sq = (a * b * Math.abs(sinAngle)) / 2;
+			}
+			console.log(`Площадь треугольника ${sq}`);
+		}
+		trCheck(angle);
+		for(var i=0; i<1; i = i + 1){
+			square(massCat[i], massCat[i + 1], angle);
+		}*/
+		
+	</script>
+</body>
+</html>
