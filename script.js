@@ -35,126 +35,109 @@ for(let index = 0; index >= 0; index++) {
 // HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 1
 } */
 
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+
+let triangleDegreeQuestion = () => {
+  let question = prompt('Какой угол у катетов?');
+  if (question == 'девяносто' || 
+  question == 'девяносто градусов' || 
+  question == '90' || 
+  question == '90 градусов' || 
+  question == '90℃' || 
+  question == '90 ℃' || 
+  question == '90°' || 
+  question == '90 °') {
+    return 90;
+  }
+}
+
+if (triangleDegreeQuestion() == 90) {
+  let triangleSides = [];
+
+  let calcTrianglePerimeter = (a, b, c) => {
+    let halfPerimetr = (a + b + c) / 2;
+    let perimetr     = Math.sqrt(halfPerimetr * (halfPerimetr - a) * (halfPerimetr - b) * (halfPerimetr - c)).toFixed(3);
+
+    if (isNaN(perimetr)) {
+      return 'Такого треугольника не существует!';
+    } else {
+      return perimetr;
+    }
+  };
+
+
+  for (let i = 0; i < 3; i++) {
+    let sides = ['AB', 'BC', 'AC'];
+
+    triangleSides[i] = prompt(`Чему равна сторона ${sides[i]}?`);
+    
+    console.log(triangleSides);
+
+    if (triangleSides[i] == '' || triangleSides[i] == null) {
+      break;
+    }
+  }
+
+  console.log(calcTrianglePerimeter(+triangleSides[0], +triangleSides[1], +triangleSides[2]));
+} else {
+  console.log('Я забыл ТЗ...');
+}
 
 
 
 
-// let massiveValues = [];
-// let massiveWords = ['первое', 'второе'];
-
-// for (let i = 0; i < 2; i += 1) {
-//   massiveValues[i] = prompt(`Введите ${massiveWords[i]} число`);
-// }
-
-// for (let i = 0; massiveValues.length; i += 1) {
-//   returnNumber(massiveValues[i]);
-// }
-
-
-// function returnNumber(num) {
-//   num = num.trim();
-
-//   if (num.length != 0) {
-//     console.log(Number(num));
-//   } else {
-//     console.log('Error');
-//   }
-// }
+// console.log(triangleSides);
 
 
 
 
-// let c1 = +prompt('Введите первое число');
-// let c2 = +prompt('Введите второе число');
-// let o  = prompt('Введите операцию');
 
-// switch (o) {
-//   case '+': console.log(c1 + c2); break;
-//   case '-': console.log(c1 - c2); break;
-//   case '/': console.log(validatorD(c1, c2)); break;
-//   case '*': console.log(c1 * c2); break;
-//   default: console.log('error'); break;
-// }
 
-// function validatorD(a, b) {
-//   if (b == 0) {
-//     return 'На ноль делить нельзя';
-//   } else {
-//     return Math.floor(a / b);
-//   }
-// }
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
 
 
 
 
+
+
+
+
+
+// CLASSWORK CLASSWORK CLASSWORK  CLASSWORK 
+// CLASSWORK CLASSWORK CLASSWORK  CLASSWORK 
+// CLASSWORK CLASSWORK CLASSWORK  CLASSWORK 
+// CLASSWORK CLASSWORK CLASSWORK  CLASSWORK 
 
 // (function() {
 //   let colors = ['#f00', 'red', 'green', 'yellow', 'Red'];
-//   let counter = 0;
+//   let counterOfRed = 0;
   
   
-//   let countOfRed = (array, count) => {
-//     for (count = 0; count < colors.length; count += 1) {
-//       array[count] = array[count].toLowerCase();
+//   let checkRed = (array, counter) => {
+  
+//     for (let index = 0; index < array.length; index += 1) {
+//       array[index] = array[index].toLowerCase();
     
-//       if (array[count] == 'red' || array[count] == '#f00') {
-//         counter++;
+//       if (array[index] == 'red' || array[index] == '#f00') {
+//         counter += 1;
 //       }
-    
+  
 //     }
-    
+  
+//     return counter;
 //   };
   
-//   countOfRed(colors, counter);
-  
-//   console.log(`Красный встречается ${counter} раз!`);
+//   console.log(`Красный цвет в массиве встречается ${checkRed(colors, counterOfRed)} раз(а)!`);
 // })();
 
 
-let a = prompt('Введите катет треугольника');
-let b = prompt('Введите второй катет треугольника');
-
-
-function triangle(a, b) {
-  let s = (a * b) / 2;
-  return s;
-}
-
-console.log(triangle(a, b));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* МАССИВЫ
-1) Создаем переменные:
-  Пустой массив цветов.
-  Индекс массива цветов (colorsIndex).
-
-2) Создаем бесконечный цикл.
-
-3) Создаем переменные в массиве:
-  Переменная, в которую помещаем цвет, который ввел пользователь.
-  Переменная итератор массива (i).
-  Переменная flag, которая отвечает за совпадения и присваивает себе значение false.
-
-4) Создаем условие, при котором цикл будет завершаться:
-  Если пользователь ввел пустую строку, ноль или null, то мы завершаем цикл.
-
-5) Создаем новый цикл в нашем цикле с условием:
-  Пока переменная итератор массива (i) меньше, чем длина массива, мы увеличиваем эту переменную на один.
-  5.1) В этом цикле добавляем условие: 
-    Если значение нашего массива colors[i] равна значению, введеному пользователем, то в переменную совпадения (flag) помещаем значение true и останавливаем этот цикл.
-
-6) В глобальный цикл добавляем еще одно условие:
-    Если проверка нашего совпадения (flag) равна false, то мы записываем значение, что ввел пользователь в массив с цветами в индекс массива цветов (colorsIndex)
-*/
+// CLASSWORK CLASSWORK CLASSWORK  CLASSWORK 
+// CLASSWORK CLASSWORK CLASSWORK  CLASSWORK 
+// CLASSWORK CLASSWORK CLASSWORK  CLASSWORK 
+// CLASSWORK CLASSWORK CLASSWORK  CLASSWORK 
