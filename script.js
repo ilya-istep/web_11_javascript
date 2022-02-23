@@ -48,8 +48,15 @@ for(let index = 0; index >= 0; index++) {
 // HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
 
 (function (){
-  let triangleDegreeQuestion = () => {
+  let triangleDegreeAnswer = triangleDegreeQuestion();
+
+  function triangleDegreeQuestion () {
     let question = prompt('Какой угол у катетов?');
+
+    if (question != '' && question != null) {
+      question = question.toLowerCase();
+    }
+
     if (question == 'девяносто' || 
     question == 'девяносто градусов' || 
     question == '90' || 
@@ -59,10 +66,12 @@ for(let index = 0; index >= 0; index++) {
     question == '90°' || 
     question == '90 °') {
       return 90;
+    } else {
+      return '';
     }
   }
-  
-  if (triangleDegreeQuestion() == 90) {
+
+  if (triangleDegreeAnswer == 90) {
     let triangleSides = [];
   
     let calcTrianglePerimeter = (a, b, c) => {
