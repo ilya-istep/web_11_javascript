@@ -7,129 +7,41 @@
 
 </head>
 <body>
-
-	
-
 	<script>
 
-/*
-	met();
+	/*
+	var str;
+	var author = true;
 
-	function met(){
-		console.log(1);
-	}
-*/
-	
-/*	
-	var b = function (){
-		console.log(2);
-	}
-	b();
-*/	
-
-/*
-	var c = ()=>{
-		console.log(3);
-	}
-
-	c();
-*/
-/*
-	(function(){
-		console.log(4);
-	})();
-
-*/
-
-/*
-	var massValues = [];
-	var massNumName = ['первое', 'второе'];
-
-	for(var i = 0; i < 2; i = i + 1){
-		massValues[i] = prompt(`введите ${massNumName[i]} число`);
-	}
-
-	for(var i = 0; i < massValues.length; i = i + 1){
-		massValues[i] = parseInt(massValues[i]);
-	}
-
-*/
-/*
-	var c1 = Number(prompt(`введите первое число`));
-	var c2 = Number(prompt(`введите второе число`));
-	var o = prompt(`операция`);
-
-	switch(o){
-		case '+': console.log(c1 + c2); break;
-		case '-': console.log(c1 - c2); break;
-		case '/':  console.log(validatorD(c1, c2)); break;
-		default: console.log("error");
-	}
-
-	function validatorD(x, y){
-		if(y == 0){
-			return 'На ноль делить нельзя';
+	while(true){
+		str = prompt("введите строку");
+		if(author){
+			console.log(`- (я) ${str}`);
+			author = false;
 		}
 		else{
-			return x / y;
-		}
+		 	console.log(`- (бот) ${str}`);
+		 	author = true;
+		}		
+		if(str == 0){
+		 	break;
+	 	}
+ 	}
+ 	*/
+
+ 	var str;
+	var author = true;
+	for (; author = true; ) {
+		str = prompt("введите строку")
+		console.log(`- (я) ${str}`);
+		str = prompt("введите строку")
+		console.log(`- (бот) ${str}`);
+		if(str == 0){
+		 	break;
+	 	}
 	}
-*/
-
-
-/*
-	function met(){
-		1 + 1;
-		return 3;
-		console.log(345345);
-		
-	}
-
-	console.log(met());
-
-*/
-
-	//var colors = ["red", "green", "red", "yellow", "#f00", "Red", "#F00"];
-
-	//var colors = ["#f00", "red", "green", "yellow", "Red"];
-
-
-	// function itemLovercase(s) {
-	// 	return s.toLowerCase();
-	// }
-
-/*
-	for(var i = 0; i < colors.length; i = i + 1){
-		colors[i] = itemLovercase(colors[i]);
-	}
-*/
-
-	// var count = 0;
-	// for(var i = 0; i < colors.length; i = i + 1){
-	// 	colors[i] = itemLovercase(colors[i]);
-
-	// 	if((colors[i] == "red") || (colors[i] == "#f00")){
-	// 		count = count + 1;
-	// 	}
-
-	// }
-	// console.log(count);
-
-
-
-	// посчитать площадь треугольника (прямоугольного)
-	// запросить у пользователя все необходимые данные (prompt)
-	// и реализовать это через именованную функцию
-
-
-
 	
 
-
-
-
 	</script>
-
-
 </body>
 </html>
