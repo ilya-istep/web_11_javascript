@@ -1,8 +1,21 @@
 'use strict';
 
+console.log('HOMEWORK2 HOMEWORK2 HOMEWORK2 HOMEWORK2');
+
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+
 (function (){
-  let triangleDegreeQuestion = () => {
+  let triangleDegreeAnswer = triangleDegreeQuestion();
+
+  function triangleDegreeQuestion () {
     let question = prompt('Какой угол у катетов?');
+
+    if (question != '' && question != null) {
+      question = question.toLowerCase();
+    }
 
     if (question == 'девяносто' || 
     question == 'девяносто градусов' || 
@@ -12,20 +25,12 @@
     question == '90 ℃' || 
     question == '90°' || 
     question == '90 °') {
-      return  90;
-    } else if (question < 90 && question > 0){
-      return 1;
-    } else if (question > 90 && question < 180) {
-      return 179;
-    } else if (question >= 180) {
-      return 180;
-    } else if (question <= 0) {
-      return 0;
+      return 90;
+    } else {
+      return '';
     }
   }
 
-  let triangleDegreeAnswer = triangleDegreeQuestion();
-console.log(triangleDegreeAnswer);
   if (triangleDegreeAnswer == 90) {
     let triangleSides = [];
   
@@ -54,11 +59,12 @@ console.log(triangleDegreeAnswer);
     }
   
     console.log(calcTrianglePerimeter(+triangleSides[0], +triangleSides[1], +triangleSides[2]));
-  } else if (triangleDegreeAnswer > 90 && triangleDegreeAnswer < 180){
-    console.log('Тупоугольный треугольник');
-  } else if (triangleDegreeAnswer < 90 && triangleDegreeAnswer > 0){
-    console.log('Остроугольный треугольник');
-  } else if (triangleDegreeAnswer <= 0 || triangleDegreeAnswer >= 180) {
-    console.log('Такого треугольника не существует!');
+  } else {
+    console.log('Это не прямоугольный треугольник');
   }
 })();
+
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
+// HOMEWORK HOMEWORK HOMEWORK HOMEWORK HOMEWORK 2
