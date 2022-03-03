@@ -5,142 +5,76 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 
+	<style>
+		.color{
+			background: #0f0;
+		}
+		.color1{
+			background: #00f;
+		}
+	</style>
 </head>
 <body>
 
+
+	<p id="my_id" class="my_p color">
+		<span>text</span>
+	</p>
+
+
+
 	<script>
-
 		'use strict';
-/*
-		let cat = {
-			'laps': 4,
-			color: 'black',
-			'runKoshc': function () {
-				console.log("Побежали тапки драть")
-			}
-		}
 
-*/
+		//let e = document.getElementById("my_id");
 
+		//let e = document.querySelector("li");
 
-		//console.log(cat.run())
+		// let colors = ["#f00", '#0f0', '#00f'];
 
-		//cat['run koshc']();
+		// let e = document.querySelector("p");
 
+		// let color = prompt();
 
-		// создать объект машина
-		// которая содержит 3 свойства и 3 метода
-/*
-		let met = function(){
-			console.log("Ускорение");
-		}
+		// for(let i = 0; i < colors.length; i++){
+		// 	if(cwitchColor(colors[i], color)){
+		// 		break;
+		// 	}
+		// }
 
-		let car = {
-			'color': 'black',
-			'speed': 220,
-			v: 1.6,
-			radio: true,
-			move: function(){
-
-			},
-			stop: function(){
-
-			},
-			acseleration: met
-		}
-
-		car.stop = function(){
-
-		}
-		*/
-/*
-
-		car['m'] = 10;
-		console.log(car.m);
-
-
-		let a = [1, 54];
-
-		a[a.length - 1] = 40;
-		a.push(40)
-		*/
-/*
-		car.v = met;
-		car.v();
-
-*/
-
-/*
-		if(true){
-			window.a = 1;
-		}
-
-		window.alert = function(){
-			prompt();
-		}
-
-		*/
-
-
-
-
-		// есть ссылка с якорем
-		// если был осуществлен клик по ссылке выведите alert с текстом "был клик"
-
+		// function cwitchColor(c, userColor){
+		// 	if(c === userColor){
+		// 		e.style.backgroundColor = userColor;
+		// 		return true;
+		// 	}
+		// }
 		
 		
 
+		// задать рамочку у элемента (красную в 2 пикселя сплошную)
 
+
+		// пользователь вводит цвет и этот цвет применяется к элементу p
+
+		// есть масив цветов, прерить что введенный цвет содержится в этом массиве (сделать функцией)
+
+		let e = document.querySelector("p");
+		//e.style.color = "red"
+
+		//e.classList.add("color");
+/*
+		e.classList.remove("color");
+
+		if(!e.classList.contains("color")){
+			e.classList.add("color1");
+		}
+*/
+		
+
+		e.innerHTML = e.innerHTML + "<a href=\"#\">link</a>";
+		console.log(e.innerHTML);
 
 	</script>
-
-
-
-
-	<a href="#id">link</a>
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
-	<div id="id">123213</div>
-
+	
 </body>
 </html>
