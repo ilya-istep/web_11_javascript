@@ -1,0 +1,29 @@
+.btn {
+  width: 100px;
+  background-color: #f00;
+}
+
+.btn-animation {
+  position: relative;
+  animation: 10s moveBtnToRight ease infinite;
+}
+
+.btn-animation-state {
+  animation-play-state: paused;
+}
+
+@keyframes moveBtnToRight {
+  0% {
+    left: 0%;
+    background-color: #f00;
+  }
+  50% {
+    left: 100%;
+    background-color: #0f0;
+    margin-left: -100px;
+  }
+  100% {
+    left: 0%;
+    background-color: #00f;
+  }
+}
