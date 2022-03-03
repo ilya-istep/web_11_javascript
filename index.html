@@ -4,43 +4,34 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-
 </head>
 <body>
 	<script>
+	'use strict';
 
-	/*
-	var str;
-	var author = true;
+	let c = Number(prompt(`введите гипотенузу`));
+	let a = Number(prompt(`введите первый катет`));
+	let b = Number(prompt(`введите второй катет`));
+	let hyp = c**2;
+	let cathA = a**2;
+	let cathB = b**2;
+	let sum = cathA + cathB;
 
-	while(true){
-		str = prompt("введите строку");
-		if(author){
-			console.log(`- (я) ${str}`);
-			author = false;
+	let Pyth = () => {
+		if(hyp == sum){
+			alert('Треугольник прямоугольный');
+			let sqr = (1/2)*(a + b);
+			alert(`площадь равна ${sqr}`)			
 		}
-		else{
-		 	console.log(`- (бот) ${str}`);
-		 	author = true;
-		}		
-		if(str == 0){
-		 	break;
-	 	}
- 	}
- 	*/
-
- 	var str;
-	var author = true;
-	for (; author = true; ) {
-		str = prompt("введите строку")
-		console.log(`- (я) ${str}`);
-		str = prompt("введите строку")
-		console.log(`- (бот) ${str}`);
-		if(str == 0){
-		 	break;
-	 	}
+		else {
+			alert('Треугольник не прямоугольный');
+			let p = (a+b+c)/2;
+			let sqr = (p*(p-a)*(p-b)*(p-c))**(1/2);
+			alert(`площадь равна ${sqr}`)
+		}
 	}
-	
+
+	Pyth();
 
 	</script>
 </body>
