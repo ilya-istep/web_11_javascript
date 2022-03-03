@@ -4,76 +4,114 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-
 	<style>
-		.color{
-			background: #0f0;
+
+		.btn{
+			position: relative;
+			width: 50px;
+			background-color: #f00;
+			border-width: 0;
 		}
-		.color1{
-			background: #00f;
+		.active{
+			animation: 5s run ease infinite;
+		}
+		.stop{
+			animation-play-state: paused;
+		}
+
+		@keyframes run {
+			0%{
+				left: 0;
+				background-color: #f00;
+			}
+			25%{
+				background-color: #0f0;
+			}
+			50%{
+				left: 100%;
+				margin-left: -50px;
+				background-color: #ccc;
+			}
+			75%{
+				background-color: #00f;
+			}
+			100%{
+				left: 0;
+				background-color: #f00;
+			}
 		}
 	</style>
 </head>
 <body>
 
-
-	<p id="my_id" class="my_p color">
-		<span>text</span>
-	</p>
-
-
+	<button class="btn">123</button>
 
 	<script>
-		'use strict';
+		/*
+		let el = document.querySelector("p");
+		el.style.color = "rgb(255,0,0)";
+		*/
 
-		//let e = document.getElementById("my_id");
-
-		//let e = document.querySelector("li");
-
-		// let colors = ["#f00", '#0f0', '#00f'];
-
-		// let e = document.querySelector("p");
-
-		// let color = prompt();
-
-		// for(let i = 0; i < colors.length; i++){
-		// 	if(cwitchColor(colors[i], color)){
-		// 		break;
-		// 	}
-		// }
-
-		// function cwitchColor(c, userColor){
-		// 	if(c === userColor){
-		// 		e.style.backgroundColor = userColor;
-		// 		return true;
-		// 	}
-		// }
-		
-		
-
-		// задать рамочку у элемента (красную в 2 пикселя сплошную)
-
-
-		// пользователь вводит цвет и этот цвет применяется к элементу p
-
-		// есть масив цветов, прерить что введенный цвет содержится в этом массиве (сделать функцией)
-
-		let e = document.querySelector("p");
-		//e.style.color = "red"
-
-		//e.classList.add("color");
 /*
-		e.classList.remove("color");
+		let el = document.querySelector("button");
+		let c = 0;
 
-		if(!e.classList.contains("color")){
-			e.classList.add("color1");
+		el.onclick = function(){
+			let bg = document.querySelector("html");
+
+			if(bg.classList.contains("bg")){
+				bg.classList.remove("bg")
+			}
+			else{
+				bg.classList.add("bg")
+			}
+
+			c = c + 1;
+
+			if(c <= 2){
+				bg.classList.toggle("bg");
+			}
 		}
 */
-		
+/*
+		let el = document.querySelector("button");
 
-		e.innerHTML = e.innerHTML + "<a href=\"#\">link</a>";
-		console.log(e.innerHTML);
+		let bg = document.querySelector("html");
 
+
+		let action = ()=>{
+			bg.classList.toggle("bg");
+
+			el.removeEventListener('click', action);
+		}
+
+		el.addEventListener('click', action);
+*/
+
+		// создать анимацию движения кнопки слева направо
+		// при клике на кнопку запускается анимация
+		// при повторном клике анимация останавливается
+		// при движении кнопка меняет цвет (красный, зелёный, синий)
+		// при основке должен сохраняться цвет кнопки
+		// при двойном клике кнопка возвращается на начальное место
+
+		let btn = document.querySelector(".btn");
+
+		btn.addEventListener('click', ()=>{
+
+			if(btn.classList.contains("active")){
+				btn.classList.toggle("stop");
+			}
+
+			btn.classList.add("active");
+
+			
+		})
+
+
+		btn.addEventListener('dblclick', ()=>{
+			btn.classList.remove("active");
+		})
 	</script>
 	
 </body>
