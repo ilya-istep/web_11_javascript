@@ -4,47 +4,100 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<style>
+		html{
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+		body{
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+		.wrap{
+			display: flex;
+			width: 100%;
+			height: 500px;
+			justify-content: center;
+			align-items: center;
+		}
+		span{
+			display:  block;
+			background-color: #f0f000;
+			padding: 5px;
+			font-size: 40px;
+		}	
+		.rotating{
+			animation: 2s circleRot ease infinite;
+		}
+		.ring{
+			animation: 1.2s ringading ease infinite;
+		}
+
+		@keyframes circleRot{
+			0%  { 
+				transform: rotate(0deg);
+				transform-origin: center center; 
+			}
+  			100% { 
+  				transform: rotate(360deg);
+  				transform-origin: center center;  
+  			}
+  		}
+  		@keyframes ringading{
+			0%  { 
+				transform: rotate(0deg);
+				transform-origin: center center; 
+			}
+  			10% { 
+  				transform: rotate(30deg);
+  				transform-origin: center center;  
+  			}
+  			20% { 
+  				transform: rotate(-30deg);
+  				transform-origin: center center;  
+  			}
+  			30% { 
+  				transform: rotate(30deg);
+  				transform-origin: center center;  
+  			}
+  			40% { 
+  				transform: rotate(-30deg);
+  				transform-origin: center center;  
+  			}
+  			60% { 
+  				transform: rotate(0deg);
+  				transform-origin: center center;  
+  			}
+  			100% { 
+  				transform: rotate(0deg);
+  				transform-origin: center center;  
+  			}
+  		}
+	</style>
 </head>
 <body>
+	<div class="wrap">
+		<span>JS рулит!</span>
+	</div>
 	<script>
-	'use strict';
+		'use strict';
 
-	/*
-		Код, введённый в консоли страницы https://academy.liblessons.ru/login?referer=%2Fonlinekurs%2Fbackend-developer&kurs=backend-developer#registration
+		let e = document.querySelector("span");
 
-		window.location.hash
-		'#registration'
-		window.location.host
-		'academy.liblessons.ru'
-		window.location.hostname
-		'academy.liblessons.ru'
-		window.location.pathname
-		'/login'
-		window.location.port
-		''
-		window.location.protocol
-		'https:'
-		window.location.search
-		'?referer=%2Fonlinekurs%2Fbackend-developer&kurs=backend-developer'
-	*/
+		function animChange() {
+			let a = prompt("Введите название анимации: Rotation или RingaDing");
 
-	let urlElements = {
-		'hash': '#registration',
-		'host': 'academy.liblessons.ru',
-		'hostname': 'academy.liblessons.ru',
-		'pathname': '/login',
-		'port': '',
-		'protocol': 'https',
-		'search': ["?referer=%2Fonlinekurs%2Fbackend-developer", "kurs=backend-developer"],
-	}
+			if(a == 'Rotation'){
+				e.classList.add("rotating");
+			}
+			if(a == 'RingaDing'){
+				e.classList.add("ring");
+			}
+		}
 
-	console.log('Составные части ссылки https://academy.liblessons.ru/login?referer=%2Fonlinekurs%2Fbackend-developer&kurs=backend-developer#registration');
-	console.log('протокол:', urlElements.protocol);
-	console.log('домен:', urlElements.hostname);
-	console.log('путь:', urlElements.pathname);
-	console.log('параметр 1:', urlElements.search[0]);
-	console.log('параметр 2:', urlElements.search[1]);
-	console.log('якорь:', urlElements.hash);
+		animChange()
 
 	</script>
 </body>
