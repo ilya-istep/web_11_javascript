@@ -9,29 +9,42 @@
 	<script>
 	'use strict';
 
-	let c = Number(prompt(`введите гипотенузу`));
-	let a = Number(prompt(`введите первый катет`));
-	let b = Number(prompt(`введите второй катет`));
-	let hyp = c**2;
-	let cathA = a**2;
-	let cathB = b**2;
-	let sum = cathA + cathB;
+	/*
+		Код, введённый в консоли страницы https://academy.liblessons.ru/login?referer=%2Fonlinekurs%2Fbackend-developer&kurs=backend-developer#registration
 
-	let Pyth = () => {
-		if(hyp == sum){
-			alert('Треугольник прямоугольный');
-			let sqr = (1/2)*(a + b);
-			alert(`площадь равна ${sqr}`)			
-		}
-		else {
-			alert('Треугольник не прямоугольный');
-			let p = (a+b+c)/2;
-			let sqr = (p*(p-a)*(p-b)*(p-c))**(1/2);
-			alert(`площадь равна ${sqr}`)
-		}
+		window.location.hash
+		'#registration'
+		window.location.host
+		'academy.liblessons.ru'
+		window.location.hostname
+		'academy.liblessons.ru'
+		window.location.pathname
+		'/login'
+		window.location.port
+		''
+		window.location.protocol
+		'https:'
+		window.location.search
+		'?referer=%2Fonlinekurs%2Fbackend-developer&kurs=backend-developer'
+	*/
+
+	let urlElements = {
+		'hash': '#registration',
+		'host': 'academy.liblessons.ru',
+		'hostname': 'academy.liblessons.ru',
+		'pathname': '/login',
+		'port': '',
+		'protocol': 'https',
+		'search': ["?referer=%2Fonlinekurs%2Fbackend-developer", "kurs=backend-developer"],
 	}
 
-	Pyth();
+	console.log('Составные части ссылки https://academy.liblessons.ru/login?referer=%2Fonlinekurs%2Fbackend-developer&kurs=backend-developer#registration');
+	console.log('протокол:', urlElements.protocol);
+	console.log('домен:', urlElements.hostname);
+	console.log('путь:', urlElements.pathname);
+	console.log('параметр 1:', urlElements.search[0]);
+	console.log('параметр 2:', urlElements.search[1]);
+	console.log('якорь:', urlElements.hash);
 
 	</script>
 </body>
