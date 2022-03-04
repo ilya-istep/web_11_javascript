@@ -4,131 +4,35 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-
 </head>
 <body>
-
-	
-
 	<script>
-
-/*
-		var a = ["13", "213"];
-		var b = Array(13, 213);
-
-
-		var colors = [];
-
-
-
-
-		var i = 0;
-
-		while(true){
-			
-			var str = prompt();
-
-			if(str == 0){
-				break;
-			}
-
-			colors[i] = str;
-			i = i + 1;
-			console.log(colors);
-		}
-		
-
-
-
-		*/
-
-/*
-		var answers = ["Да", "Нет", "Не знаю"];
-
-		while(true){
-
-			var question = prompt("Мой вопрос");
-
-			if(question == 0){
-				break;
-			}
-
-			console.log(`-(я) ${question}`);
-		
-			console.log(`-(бот) ${answers[Math.floor(Math.random() * 3)]}`);
-		}
-*/
-
-/*
-		создать переписку двух ботов
-		максимальное количество сообщений = 10
-*/
-/*
-		var msgBot_1 = ["Да", "Нет", "Не знаю"];
-		var msgBot_2 = ["Да", "Нет", "Не знаю"];
-
-		var i = 0;
-		while(i < 10){
-
-			console.log(`-(бот 1) ${msgBot_1[Math.floor(Math.random() * 3)]}`);
-			console.log(`-(бот 2) ${msgBot_2[Math.floor(Math.random() * 3)]}`);
-		
-			i = i + 1;
-
-			if(Math.floor(Math.random() * 2) == 1){
-				break;
-			}
-		}
-*/
-
-
-/*
-		var colors = [];
-		var i = 0;
-		while(true){
-			var str = prompt();
-			var j = 0;
-			var flag = false;
-
-			while(j < colors.length){
-				if(colors[j] == str){
-					flag = true;
-					break;
-				}
-				j = j + 1;
-			}
-
-			if(flag == false){
-				colors[i] = str;
-			}
-
-			if(str == 0){
-				break;
-			}
-
-			i = i + 1;
-			console.log(colors);
-		}
-*/
-/*
-		var colors = [];
-
-		while(true){
-			var str = prompt();
-
-			if(!colors.includes(str)){
-				colors.push(str);
-			}
-
-			if(str == 0){
-				break;
-			}
-
-			console.log(colors);
-		}
-*/
+		let CatetOne = prompt("Введите первый катет:");
+        let CatetToo = prompt("Введите второй катет:");
+        let ugl = prompt("Введите угол между катетами:");
+        let bq;
+        let s;
+        let trCheck = (i)=>{
+            if(i == 90){
+                bq = true;
+                    console.log("Прямоугольный")
+            }
+            else{
+                bq = false;
+            }
+        }
+        let square = (a, b, ang)=>{
+            if(bq == true){
+                sq = (a * b) / 2;
+            }
+            else{
+                var sin = Math.sin(ugl);
+                sq = (a * b * Math.abs(sin)) / 2;
+            }
+            console.log(s = sq);
+        }
+        trCheck(ugl);
+        square(CatetOne, CatetToo, ugl);
 	</script>
-
-
 </body>
 </html>
