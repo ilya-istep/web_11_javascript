@@ -3,22 +3,26 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
 	<title>Document</title>
 
 </head>
 <body>
-
-	
-
+	<img src="images/cat.jpg" alt="" class="er">
 	<script>
-	var kurl = {
-		'protocol': location.protocol,
-		'hostname': location.hostname,
-		'pathname': location.pathname,
-		'search': location.search,
-		'hash': location.hash,
-	}
-	console.log(kurl);
+		
+		let animateChoice = prompt('Введите тип анимации: 1) heart, 2) invis');
+		let image = document.querySelector('img');
+		
+		console.log(image);
+		if (animateChoice == 'invis') {
+			image.classList.add('away');
+		}
+		else{
+			image.classList.add('heart');
+		}
+
+
 	</script>
 
 
