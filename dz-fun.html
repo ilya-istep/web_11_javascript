@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+
+
+	<script>
+
+		let CatetOne = prompt("Введите первый катет:");
+		let CatetToo = prompt("Введите второй катет:");
+		let ugl = prompt("Введите угол между катетами:");
+		let bq;
+		let s;
+		let checking = (i)=>{
+			if(i == 90){
+				bq = true;
+					console.log("Прямоугольный")
+			}
+			else{
+				bq = false;
+			}
+		}
+		let sum = (a, b, ang)=>{
+			if(bq == true){
+				sq = (a * b) / 2;
+			}
+			else{
+				var sin = Math.sin(ugl);
+				sq = (a * b * Math.abs(sin)) / 2;
+			}
+			console.log(`S = "${sq}"`);
+		}
+		checking(ugl);
+		sum(CatetOne,CatetToo);
+	</script>
+</body>
+</html>
