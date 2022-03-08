@@ -8,40 +8,93 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+  <style>
+  	.button{
+  		font-size: 70px;
+  		display: block;
+  		position: relative;
+  	}
+  	.heart{
+	animation: heartshake 5s infinite ease;
+}
+.scale {
+	animation: scale 5s infinite ease;
+	position: relative;
+	
+	opacity: 1;
+	transform: scale(1);
+
+}
+@keyframes heartshake{
+	0%{
+		transform: scale(1);
+	}
+	25%{
+		transform: scale(1.5);
+	
+	}
+	50%{
+		transform: scale(1);
+		
+	}
+	75%{
+		transform: scale(1.5);
+		
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+@keyframes scale{
+	0%{
+		opacity: 1;
+		transform: scale(0.8);
+		top: 0;
+	}
+	
+	50%{
+		top: 0;
+		transform: scale(0.4);
+	}
+	100%{
+		transform: scale(0.8);
+		top: 100%;
+		
+	}
+}
+  	
+  </style>
+
+ 
 </head>
 <body>
-
-	<h1 class="animate__animated animate__bounce">An animated element</h1>
+	<button class="button">BBS</button>
 	
-	<h1 class="animate__animated animate__swing">An Element</h1>
 
+
+	
+	
 
 
 	<script>
 		'use strict';
+		let enterAnimate= prompt('Введите тип анимации:  heart,  scale');
+		let image = document.querySelector('button');
 
-		/*let a = ['animate__animated animate__bounce','animate__animated animate__swing'];
-		let c = prompt("введите анимацию");
-		for(i = 0;i < a.length;i++){
-			cwitchAnimate(a);
-
-
-		}*/
-		let b = prompt('number')
-
-		let a = [1,2,3,4,5];
-		for(i = 0;i < 5;i++){
-			if(true){
-				b[a] === i;
-				i = i+1;
-				
-			}
-			else{
-				false;
-			}
+		
+		if (enterAnimate === 'scale') {
+			image.classList.add('scale');
 		}
-		console.log(i);
+		else{
+			image.classList.add('heart');
+		}
+		
+		
 
+
+		
+		
+       
 		
 
 
