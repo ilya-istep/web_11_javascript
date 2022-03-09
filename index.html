@@ -7,32 +7,15 @@
 </head>
 <body>
 	<script>
-		let CatetOne = prompt("Введите первый катет:");
-        let CatetToo = prompt("Введите второй катет:");
-        let ugl = prompt("Введите угол между катетами:");
-        let bq;
-        let s;
-        let trCheck = (i)=>{
-            if(i == 90){
-                bq = true;
-                    console.log("Прямоугольный")
-            }
-            else{
-                bq = false;
-            }
-        }
-        let square = (a, b, ang)=>{
-            if(bq == true){
-                sq = (a * b) / 2;
-            }
-            else{
-                var sin = Math.sin(ugl);
-                sq = (a * b * Math.abs(sin)) / 2;
-            }
-            console.log(s = sq);
-        }
-        trCheck(ugl);
-        square(CatetOne, CatetToo, ugl);
+		var link = new URL( "https://academy.liblessons.ru/login?referer=%2Fonlinekurs%2Fbackend-developer&kurs=backend-developer#registration" );
+        
+        console.log([
+            link.protocol,
+            link.host,
+            link.pathname,
+            link.search,
+            link.hash,
+        ]);
 	</script>
 </body>
 </html>
