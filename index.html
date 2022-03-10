@@ -6,112 +6,131 @@
 	<title>Document</title>
 	<style>
 
-		.btn{
-			position: relative;
-			width: 50px;
-			background-color: #f00;
-			border-width: 0;
-		}
-		.active{
-			animation: 5s run ease infinite;
-		}
-		.stop{
-			animation-play-state: paused;
-		}
-
-		@keyframes run {
-			0%{
-				left: 0;
-				background-color: #f00;
-			}
-			25%{
-				background-color: #0f0;
-			}
-			50%{
-				left: 100%;
-				margin-left: -50px;
-				background-color: #ccc;
-			}
-			75%{
-				background-color: #00f;
-			}
-			100%{
-				left: 0;
-				background-color: #f00;
-			}
-		}
 	</style>
 </head>
 <body>
 
-	<button class="btn">123</button>
+<!-- 	<button class="btn">1</button>
+	<button class="btn">2</button>
+ -->
+
+
+	<span>switch</span>
+
+
+	<button><i>1</i></button>
 
 	<script>
-		/*
-		let el = document.querySelector("p");
-		el.style.color = "rgb(255,0,0)";
-		*/
+/*
+	повесить событие клик на все элементы wrap
+	и при клике получить их содержимое в консоль (использовать evt)
+*/
+
 
 /*
-		let el = document.querySelector("button");
-		let c = 0;
+		let btn = document.querySelectorAll(".btn");
 
-		el.onclick = function(){
-			let bg = document.querySelector("html");
 
-			if(bg.classList.contains("bg")){
-				bg.classList.remove("bg")
-			}
-			else{
-				bg.classList.add("bg")
-			}
-
-			c = c + 1;
-
-			if(c <= 2){
-				bg.classList.toggle("bg");
-			}
+		for(let i = 0; i < btn.length; i = i + 1){
+			btn[i].addEventListener("click", function(){
+				console.log(btn[i].innerHTML);
+			})
 		}
 */
 /*
-		let el = document.querySelector("button");
-
-		let bg = document.querySelector("html");
-
-
-		let action = ()=>{
-			bg.classList.toggle("bg");
-
-			el.removeEventListener('click', action);
-		}
-
-		el.addEventListener('click', action);
-*/
-
-		// создать анимацию движения кнопки слева направо
-		// при клике на кнопку запускается анимация
-		// при повторном клике анимация останавливается
-		// при движении кнопка меняет цвет (красный, зелёный, синий)
-		// при основке должен сохраняться цвет кнопки
-		// при двойном клике кнопка возвращается на начальное место
-
 		let btn = document.querySelector(".btn");
 
-		btn.addEventListener('click', ()=>{
+		btn.addEventListener("click", function(evt){
+			console.log(evt.target);
+		})
+*/
 
-			if(btn.classList.contains("active")){
-				btn.classList.toggle("stop");
+/*
+		let btn = document.querySelectorAll(".btn");
+
+
+		for(let i = 0; i < btn.length; i = i + 1){
+			btn[i].addEventListener("click", function(evt){
+				console.log(evt.target.innerHTML);
+			})
+		}
+*/
+/*
+		let el = document.querySelector(".wrap");
+		let sum = 0;
+
+		el.addEventListener("click", function(evt){
+
+			if(!evt.target.classList.contains("wrap")){
+				sum = sum + Number(evt.target.innerHTML);
+				console.log(sum);
 			}
-
-			btn.classList.add("active");
-
 			
 		})
+*/		
+/*
+		let el = document.querySelector("button");
+		el.addEventListener("click", function(evt){
 
+			// for(let i = 0; i < evt.path.length; i = i + 1){
+	
+			// 	if(evt.path[i].tagName == "BUTTON"){
 
-		btn.addEventListener('dblclick', ()=>{
-			btn.classList.remove("active");
+			// 		console.log(2);
+			// 	}
+			// }
+			console.log(evt);
+
+			// if(evt.target.closest('button')){
+				
+
+			// 	evt.stopPropagation();
+			// }
+
 		})
+	*/
+/*
+	let el = document.querySelector("button");
+
+
+	el.addEventListener("click", function(evt){
+
+		// let btn = evt.target.closest('button');
+
+		// if(btn){
+		// 	btn.setAttribute("disabled", "disabled");
+		// }
+
+		evt.target.setAttribute("disabled", "disabled");
+	})
+*/
+
+
+		// есть кнопка с иконкой внутри 
+		// при первом нажатии на эту конструкцию блокировать кнопку, а при повторном разблокировать
+
+
+
+
+		let el = document.querySelector("button");
+		let switchEl = document.querySelector("span");
+
+
+		switchEl.addEventListener("click", function(evt){
+
+
+
+			if(el.hasAttribute("disabled")){
+
+				el.removeAttribute("disabled");
+			}
+			else{
+				el.setAttribute("disabled", "disabled");
+			}
+
+
+		})
+
 	</script>
 	
 </body>
