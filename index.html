@@ -3,19 +3,57 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>Document</title>
 </head>
 <body>
-	<script>
-		var link = new URL( "https://academy.liblessons.ru/login?referer=%2Fonlinekurs%2Fbackend-developer&kurs=backend-developer#registration" );
-        
-        console.log([
-            link.protocol,
-            link.host,
-            link.pathname,
-            link.search,
-            link.hash,
-        ]);
-	</script>
+
+    <div id="myConteiner">
+        <div id="myAnimation"></div>
+    </div>
+    
+    <script>
+        function moveRightDown() {
+
+          let elem = document.getElementById("myAnimation");
+          let pos = 0;
+          let id = setInterval(frame, 10);
+
+          function frame() {
+            if (pos == 150) {
+                clearInterval(id);
+            } else {
+                pos++;
+                elem.style.top = pos + 'px';
+                elem.style.left = pos + 'px';
+            }
+          }
+        }
+
+        function moveRight() {
+
+          let elem = document.getElementById("myAnimation");
+          let pos = 0;
+          let id = setInterval(frame, 10);
+
+          function frame() {
+            if (pos == 150) {
+                clearInterval(id);
+            } else {
+                pos++;
+                elem.style.left = pos + 'px';
+            }
+          }
+        }
+
+        let myMove = prompt("вправо или вправо вниз?");
+
+        if (myMove.toLowerCase() == "вправо") {
+            moveRight();
+        }
+        if (myMove.toLowerCase() == "вправо вниз") {
+            moveRightDown();
+        }
+    </script>
 </body>
 </html>
