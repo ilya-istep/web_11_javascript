@@ -1,18 +1,8 @@
-let btn = document.querySelector('.btn');
+'use strict';
 
-let animation = (event) => {
+let navMenuBtn = document.querySelector('.nav-menu-btn'),
+    mainWrapp = document.querySelector('.main-wrapper');
 
-  if (btn.classList.contains('btn-animation')) {
-    btn.classList.toggle('btn-animation-state');
-  }
-
-  btn.classList.add('btn-animation');
-}
-
-btn.addEventListener('click', animation);
-
-btn.addEventListener('dblclick', () => {
-  btn.classList.remove('btn-animation');
+navMenuBtn.addEventListener('click', () => {
+  mainWrapp.classList.toggle('active');
 });
-
-
