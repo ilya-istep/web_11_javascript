@@ -57,12 +57,17 @@
 
 
 <script>
-	 let el = document.querySelector('.ul');
+	 let el = document.querySelectorAll('.link');
+	
 
-	 el.addEventListener("click", function(event){
-	 	console.log(event.target.textContent);
-	 })
+	 el.forEach(el =>{
+	 	el.addEventListener("click", function(event){
+	 		console.log(event.target.textContent);
+	 		el.classList.add("active")
 
+	 	}) 
+	 		
+	 	})
 	 
 	 	
 	 	
