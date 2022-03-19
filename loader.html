@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		.wrap{
+			box-sizing: border-box;
+			background-color: black;
+			width: 1500px;
+			height: 100vh;
+			display: block;
+			
+
+		}
+		.my_btn{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			padding: 24px 48px;
+            border: 2px solid #ffffff;
+			background-color: black;
+			
+			
+			display: block;
+			
+			text-transform: uppercase;
+			z-index: 1;
+			background: none;
+			 transition: background-position 1.5s ease-in-out;
+			  background-size: 100% 200%; 
+			
+			background-image: linear-gradient(to top, #ffffff 50%, transparent 50%);
+
+			
+		}
+		p{
+			
+			color: #ffffff;
+			letter-spacing: 6px;
+			font-size: 14px;
+			text-transform: uppercase;
+			display: block;
+			font-weight: 700;
+
+
+		}
+		.my_btn:hover{
+			 background-position: bottom;
+			 
+
+			 }
+			 .my_btn:hover p{
+			 	color: black;
+			 }
+			 .active{
+			 	animation: run 2s ease;
+			 }
+			 @keyframes run{
+			 	0%{
+			 		top: 50%;
+
+			 	}
+			 	100%{
+			 		top: 35%;
+			 		opacity: 0;
+
+			 	}
+			 }
+		
+		
+		
+	</style>
+
+</head>
+<body>
+
+
+	<div class="wrap">
+		<button class="my_btn"><p>KEIRA</p></button>
+	</div>
+
+	<script>
+		let btn =document.querySelector(".my_btn");
+		
+		btn.addEventListener("click",function(event){
+			btn.classList.add("active");
+
+		})
+		
+		
+		
+	</script>
+</body>
+</html>
