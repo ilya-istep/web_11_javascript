@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>link</title>
+	<link rel="stylesheet" href="css/all.min.css">
+
+
+	<style>
+		.wrap{
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			display: flex;
+			position: relative;
+			border: 1px solid green;
+		}
+		ul{
+			list-style: none;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: space-between;
+
+			
+		}
+		li{
+			font-size: 20px;
+			border: 1px solid black;
+			
+
+		}
+	    li > a{
+			color: green;
+			text-decoration: none;
+		}
+		.active{
+			background-color: red;
+		}
+		
+
+
+	</style>
+	
+<body>
+ 
+<div class="wrap">
+	<ul class="ul">
+		<li class="link"><a href="#">Sotial<i class="fa-brands fa-vk"></i></a></li>
+		<li class="link"><a href="#">Video<i class="fa-brands fa-youtube"></i></a></li>
+		<li class="link"><a href="#">Friends<i class="fa-brands fa-odnoklassniki"></i></a></li>
+		<li class="link"><a href="#">Events<i class="fa-brands fa-twitter"></i></a></li>
+		<li class="link"><a href="#">Foto<i class="fa-brands fa-instagram"></i></a></li>
+	</ul>
+</div>
+
+
+<script>
+	 let el = document.querySelector('.ul');
+
+	 el.addEventListener("click", function(event){
+	 	console.log(event.target.textContent);
+	 })
+
+	 
+	 	
+	 	
+	
+	 
+
+	 	
+	 	
+
+	  
+
+
+	
+
+</script>
+
+
+</body>
+</html>
