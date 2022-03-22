@@ -5,105 +5,132 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<style>
-
+		.tabs ul{
+			display: flex;
+			list-style: none;
+			padding: 0;
+		}
+		.tabs_content > div{
+			display: none;
+		}
+		.tabs_content > div.active{
+			display: block;
+		}
+		.tabs_list li.active button{
+			background: #0f0;
+		}
 	</style>
+
 </head>
 <body>
 
+	<div class="tabs" id="my_tabs_1">
+		<ul class="tabs_list">
+			<li class="active" data-block="block_1"><button class="btn">1</button></li>
+			<li data-block="block_2"><button class="btn">2</button></li>
+			<li data-block="block_3"><button class="btn">3</button></li>
+		</ul>
+		<div class="tabs_content">
+			<div class="active" id="block_1">content 1</div>
+			<div id="block_2">content 2</div>
+			<div id="block_3">content 3</div>
+		</div>
+	</div>
 
 
-	<span>switch</span>
+	<div class="tabs" id="my_tabs_2">
+		<ul class="tabs_list">
+			<li class="active" data-block="block_1"><button class="btn">1</button></li>
+			<li data-block="block_2"><button class="btn">2</button></li>
+			<li data-block="block_3"><button class="btn">3</button></li>
+		</ul>
+		<div class="tabs_content">
+			<div class="active" id="block_1">content 1</div>
+			<div id="block_2">content 2</div>
+			<div id="block_3">content 3</div>
+		</div>
+	</div>
+	
 
 
-	<button><i>1</i></button>
-
+	<script src="js/tabs.js"></script>
 	<script>
-
-
-/*
-		let user = {
-			heigth: 150,
-			name: "Вася",
-			color: "black",
-			speed: 30,
-			run: function(){ 
-				console.log(this);
-				//console.log(this.speed+"km/h");
-			}
-		}
-
-
-		user.run()
-		*/
-/*
-		if(true){
-			function met(){
-				console.log(this)
-			}
-			met()
-		}
-*/
-/*
 		'use strict';
-		
-		let o = {
-			n: 123,
-			s: function(){ 
-				console.log(this)
 
-				function x(){
-					console.log(this)
-				};
+		tabs.init();
 
-				x();
+
+
+
+		let tabs2 = Object.assign({}, tabs);
+		tabs2.tabsElement = "#my_tabs_2";
+		tabs2.init();
+
+
+
+
+
+		// if(true){
+		// 	console.log(1);
+		// }
+		// else{
+		// 	console.log(0);
+		// }
+
+		// (true)? console.log(1): console.log(0);
+
+
+
+/*
+		let elButtons = document.querySelectorAll(".tabs_list button");
+
+		for(let elButton of elButtons){
+			elButton.addEventListener('click', function(evt){
+				let elParentActive = document.querySelector(".tabs_list li.active");
+				elParentActive.classList.remove("active")
+
+				let elParent = evt.target.parentElement;
+				elParent.classList.add("active");
+
+				let hashBlock = "#" + elParent.getAttribute("data-block");
+
+				let elblockActive = document.querySelector(".tabs_content .active");
+				elblockActive.classList.remove("active");
+
+				let elBlock = document.querySelector(hashBlock);
+				elBlock.classList.add("active");
+			})
+		}
+*/
+		/*
+		function drive(){
+
+		}
+
+		var a = "vaz-2107-1997-drive()";
+		var b = ["vaz", "2107", "1997", "drive()"];
+
+
+		var car = {
+			"marka": "vaz",
+			"model": "2107",
+			"year": "1997",
+			drive: ()=>{
+
+				this.year
 			}
 		}
 
-		let a = {
-			x: 34
-		}
 
-		function met(){
-			console.log(this)
-		}
-		let c = 10;
-		met.bind(c)();
+		var car1;
+		car1 = Object.assign({}, car);
+		car.marka = "gaz";
 
-		met.bind(o)();
+		console.log(car.marka);
+		console.log(car1.marka);
 
-		met.bind(a)();
-
-
-		// у стрелочной функции контекста СВОЕГО нет! (он наследуется от ближайшего родителя с контекстом)
-*/
-
-
-/*
-		setTimeout(()=>{
-			console.log("Ау");
-		}, 3000);
-*/
-/*
-		let i = setInterval(()=>{
-			console.log("+");
-		}, 1000)
-
-
-		setTimeout(()=>{
-			clearInterval(i);
-		}, 3000);
 */
 		
-/*
-		for(var i = 1; i <= 5; i++){
-
-			function met(){
-				console.log(Number(this))
-			}
-
-			setTimeout(met.bind(i), 1000 * i);
-		}
-*/	
 
 	</script>
 	
