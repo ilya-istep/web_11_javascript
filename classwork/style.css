@@ -1,0 +1,26 @@
+.tabs-nav {
+  display: flex;
+}
+
+.tabs-nav.active {
+  
+}
+
+.tabs-nav li.active button {
+  background-color: #f00;
+}
+
+
+
+.tabs-content {
+
+}
+
+.tabs-content > div {
+  display: none;
+}
+
+.tabs-content > div.active {
+  display: block;
+}
+
