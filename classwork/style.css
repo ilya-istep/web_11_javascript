@@ -1,26 +1,97 @@
-.tabs-nav {
+
+.pre-loader {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  /*   background-color: lime; */
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-.tabs-nav.active {
-  
+.pre-loader .shape {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-5em);
 }
 
-.tabs-nav li.active button {
-  background-color: #f00;
+.pre-loader .shape .circle {
+  width: 50px;
+  height: 50px;
+  background-color: #fdb113;
+  border-radius: 50%;
+  margin: 0 1rem;
+  animation: bounce 0.6s linear infinite;
+}
+.pre-loader .shape .circle:nth-child(2) {
+  background-color: #006aca;
+  animation-delay: 0.1s;
+}
+.pre-loader .shape .circle:nth-child(3) {
+  animation-delay: 0.2s;
 }
 
-
-
-.tabs-content {
-
+.pre-loader .shadow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-5em);
 }
 
-.tabs-content > div {
-  display: none;
+.pre-loader .shadow .shape-shadow {
+  width: 50px;
+  height: 18px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  margin: 0 1rem;
+  animation: bounceShadow 0.6s linear infinite;
+  transform: translateY(5em) scale(0.5);
 }
-
-.tabs-content > div.active {
-  display: block;
+.pre-loader .shadow .shape-shadow:nth-child(2) {
+  animation-delay: 0.1s;
 }
-
+.pre-loader .shadow .shape-shadow:nth-child(3) {
+  animation-delay: 0.2s;
+}
+@keyframes bounce {
+  from,
+  to {
+    transform: translateY(0) scale(1, 1);
+    animation-timing-function: ease-in;
+  }
+  45% {
+    transform: translateY(5em) scale(1, 1);
+    animation-timing-function: linear;
+  }
+  50% {
+    transform: translateY(5em) scale(1.5, 0.5);
+    animation-timing-function: linear;
+  }
+  100% {
+    transform: translateY(5em) scale(1, 1);
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes bounceShadow {
+  from,
+  to {
+    transform: translateY(5em) scale(0.5);
+    filter: blur(5px);
+  }
+  45% {
+    transform: translateY(5em) scale(0.5);
+    /*     transform: translateY(5em) scale(1); */
+    /*     filter: blur(5px); */
+  }
+  50% {
+    box-shadow: 20px 0 5px rgba(0, 0, 0, 0.1), -20px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    transform: translateY(5em) scale(0.5);
+    box-shadow: unset;
+  }
+}
