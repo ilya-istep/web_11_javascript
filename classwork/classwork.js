@@ -1,73 +1,189 @@
 'use strict';
 
-let listOffers = document.querySelector('.list-offers');
-let offersFilter = document.querySelector('.offers-filter');
+(function(){
 
-let offers = [
-  {position: 'fornt-end', salary: 100000},
-  {position: 'back-end', salary: 200000},
-  {position: 'back-end', salary: 250000},
-  {position: 'back-end', salary: 290000},
-  {position: 'fullstack', salary: 300000},
-];
+  let listOffers = document.querySelector('.offer__items');
+  let offersFilter = document.querySelector('.offers-filter');
 
-if (offers.length > 0) {
-  setTimeout(renderListOffers, 2000);
+  let activePage = 1;
 
+  const COUNT_OFFERS_TO_PAGE = 3;
 
-} else {
-  listOffers.innerHTML = 'Нет вакансий';
-}
+  let offers = [
+    {
+      position: 'Требуется front-end разработчик', 
+      salary: 100000,
+      city: 'Нижний Новгород',
+      logo: 'mac.webp',
+      skills: '',
+      content: ''
+    },
+    {
+      position: 'Требуется back-end разработчик', 
+      salary: 500000,
+      city: 'Москва',
+      logo: 'burger.webp',
+      skills: '',
+      content: ''
+    },
+    {
+      position: 'Требуется fullstack разработчик', 
+      salary: 1000000,
+      city: 'Санкт-Питербург',
+      logo: 'mac.webp',
+      skills: '',
+      content: ''
+    },
+    {
+      position: 'Требуется fullstack разработчик', 
+      salary: 1000000,
+      city: 'Санкт-Питербург',
+      logo: 'mac.webp',
+      skills: '',
+      content: ''
+    },
+    {
+      position: 'Требуется fullstack разработчик', 
+      salary: 1000000,
+      city: 'Санкт-Питербург',
+      logo: 'mac.webp',
+      skills: '',
+      content: ''
+    },
+    {
+      position: 'Требуется fullstack разработчик', 
+      salary: 1000000,
+      city: 'Санкт-Питербург',
+      logo: 'mac.webp',
+      skills: '',
+      content: ''
+    },
+    {
+      position: 'Требуется fullstack разработчик', 
+      salary: 1000000,
+      city: 'Санкт-Питербург',
+      logo: 'mac.webp',
+      skills: '',
+      content: ''
+    },
+  ];
 
+  if (offers.length > 0) {
+    setTimeout(() => {
+      renderListOffers();
+      listOffers.parentElement.innerHTML += renderPaginations();
+      switchPagination();
+      renderFilters();
+    }, 100);
 
-
-function renderFilters() {
-  filtersPositions();
-  filtersSalary();
-}
-
-function filtersPositions() {
-
-  let filterPositions = document.querySelector('.filter-positions');
-
-  let positions = new Set();
-
-  for(let offer of offers) {
-    positions.add(offer.position);
+  } else {
+    listOffers.innerHTML = 'Нет вакансий';
   }
 
-  for (let position of positions) {
-    filterPositions.innerHTML = filterPositions.innerHTML + `
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="${position}">
-      <label class="form-check-label" for="${position}">
-        ${position}
-      </label>
-    </div>`
+
+
+  function renderFilters() {
+    filtersPositions();
+    filtersSalary();
   }
-}
 
-function filtersSalary() {
-  
-}
+  function filtersPositions() {
 
-function renderListOffers() {
-  let listOffersStr = '';
-  for(let offer of offers) {
-    listOffersStr = listOffersStr +`<li><strong>${offer.position}</strong> ${offer.salary}</li>`;
+    let filterPositions = document.querySelector('.filter-positions');
+
+    let positions = new Set();
+
+    for(let offer of offers) {
+      positions.add(offer.position);
+    }
+
+    for (let position of positions) {
+      filterPositions.innerHTML = filterPositions.innerHTML + `
+      <div class="form-check">
+        <input type="checkbox" value="" id="${position}" class="position_field form-check-input">
+        <label class="form-check-label" for="${position}">
+          ${position}
+        </label>
+      </div>`
+    }
+
+    let positionsField = document.querySelectorAll('.position_field');
+
+    for(let positionField of positionsField) {
+      positionField.addEventListener('input', (event) => {
+        console.log(event.target);
+      });
+    }
   }
-  listOffersStr = '<ul>' + listOffersStr + '</ul>';
-  listOffers.innerHTML = listOffersStr;
-  renderFilters();
-}
 
-// let qustion = prompt('Желаемая должность', 'back-end'),
-//     qustion2 = +prompt('Желаемая зарплата', '230000');
+  function filtersSalary() {
+    
+  }
 
-// offers.forEach(item => {
-//   if (qustion == 'back-end' && qustion2 > 225000 && qustion2 < 270000) {
-//     console.log(item.position, item.salary);
-//   } else {
-//     console.log('error');
-//   }
-// });
+  function renderPaginations() {
+
+    let countPage = Math.ceil(offers.length / COUNT_OFFERS_TO_PAGE);
+    let strNumbers = '';
+
+    for(let i = 1; i <= countPage; i++) {
+      strNumbers += `<li class="page-item"><a class="page-link" href="#">${i}</a></li>`;
+    }
+
+    return `<nav aria-label="Page navigation example" class="pagigation">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+
+                ${strNumbers}
+
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>`;
+  }
+
+  function switchPagination() {
+    let pagigationLinks = document.querySelectorAll('.pagigation .page-link');
+
+    for(let link of pagigationLinks) {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        activePage = +event.target.innerHTML;
+        renderListOffers();
+      });
+    }
+  }
+
+  function renderListOffers() {
+    let listOffersStr = '';
+    console.log(activePage);
+
+    offers.forEach((offer, index) => {
+      // activePage; - номер страницы выбранный
+      // COUNT_OFFERS_TO_PAGE; - кол-во записей на странице
+      // offers.length; - всего записей
+
+      if (index + 1 <= COUNT_OFFERS_TO_PAGE) {
+        listOffersStr += `<div class="offer__item">
+                            <img src="images/${offer.logo}" alt="logo">
+                            <h3 class="offer__title">${offer.position}</h3>
+                            <p class="offer__city">${offer.city}</p>
+                            <div class="offer__price">${offer.salary}руб</div>
+                          </div>`;
+      }
+    });
+    
+    listOffers.innerHTML = listOffersStr;
+
+    switchPagination();
+  }
+
+
+})();
+
