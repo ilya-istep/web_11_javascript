@@ -48,6 +48,32 @@
 			logo_company: "logo2.webp",
 			skills: "",
 			content: ""
+		},
+		{
+			position: "Требуется back-end разработчик",
+			money: 100000,
+			city: "Нижний Новгород",
+			logo_company: "logo2.webp",
+			skills: "",
+			content: ""
+		}
+		,
+		{
+			position: "Требуется back-end разработчик",
+			money: 100000,
+			city: "Нижний Новгород",
+			logo_company: "logo2.webp",
+			skills: "",
+			content: ""
+		}
+		,
+		{
+			position: "Требуется back-end разработчик",
+			money: 100000,
+			city: "Нижний Новгород",
+			logo_company: "logo2.webp",
+			skills: "",
+			content: ""
 		}
 	];
 
@@ -158,6 +184,14 @@
 	function renderListOffers(){
 		let listOffersStr = "";
 
+		let start_index;
+		if(activePage == 1){
+			start_index = 0;
+		}
+		else{
+			start_index = (activePage - 1) * COUNT_OFFERS_TO_PAGE;
+		}
+
 
 		offers.forEach((offer, index)=>{
 
@@ -165,8 +199,11 @@
 			// activePage - выбранный номер страницы
 			// offers.length - всего записей
 
+			
+
 			// поправить это условие
-			if( true ){
+			if( (index >= start_index) && (index < (start_index + COUNT_OFFERS_TO_PAGE)) ){
+				
 				listOffersStr += `<div class="item_offer">
 										<img src="images/${offer.logo_company}" alt="">
 										<div class="offer_info">
@@ -175,10 +212,11 @@
 											<strong class="money">${offer.money} руб</strong>
 										</div>
 									</div>`;
+
 			}
 		});
 
-		listOffers.innerHTML = listOffersStr;
+		document.querySelector(".list_offers").innerHTML = listOffersStr;
 	}
 })();	
 
