@@ -5,7 +5,7 @@
 	// есть список оферов с "должностями" и "окладом" от кадрового агенства
 	// вывести в консоль только те оферы, которые подходят именно вам
 
-	const COUNT_OFFERS_TO_PAGE = 3;
+	const COUNT_OFFERS_TO_PAGE = 5;
 	let activePage = 1;
 
 	let offers = [
@@ -198,8 +198,6 @@
 			// COUNT_OFFERS_TO_PAGE - количество записей на странице
 			// activePage - выбранный номер страницы
 			// offers.length - всего записей
-
-			
 
 			// поправить это условие
 			if( (index >= start_index) && (index < (start_index + COUNT_OFFERS_TO_PAGE)) ){

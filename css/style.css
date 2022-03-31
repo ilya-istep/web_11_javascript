@@ -87,6 +87,7 @@ main {
 }
 .list_offers{
 	width: 500px;
+	transition: 0.5s ease;
 }
 .item_offer{
 	display: flex;
@@ -94,6 +95,13 @@ main {
 	border: 1px solid #fff;
 	padding: 10px;
 	margin-bottom: 10px;
+	height: 120px;
+}
+.item_offer:first-child{
+	margin-top: 5px;
+}
+.item_offer:last-child{
+	margin-bottom: 5px;
 }
 .item_offer img{
 	width: 100px;
@@ -102,10 +110,11 @@ main {
 }
 .item_offer h3{
 	flex-grow: 1;
-	font-size: 20px;
+	font-size: 16px;
 }
 .offer_info{
 	padding-left: 30px;
+	width: 78%;
 }
 .offer_info .city{
 	font-size: 14px;
@@ -113,4 +122,26 @@ main {
 .item_offer .money{
 	font-size: 14px;
 	font-weight: bold;
+}
+.carousel{
+	overflow: hidden;
+	height: 395px;
+	position: relative;
+}
+.navigation_carousel_buttons button{
+	border: 1px solid #000;
+	padding: 5px 10px;
+	color: #000;
+	width: 70px;
+	left: 50%;
+	margin-left: -35px;
+	cursor: pointer;
+}
+.navigation_carousel_buttons button.prev{
+	position: absolute;
+	top: 0;
+}
+.navigation_carousel_buttons button.next{
+	position: absolute;
+	bottom: 0;
 }
