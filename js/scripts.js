@@ -5,7 +5,7 @@
 	// есть список оферов с "должностями" и "окладом" от кадрового агенства
 	// вывести в консоль только те оферы, которые подходят именно вам
 
-	const COUNT_OFFERS_TO_PAGE = 5;
+	const COUNT_OFFERS_TO_PAGE = 3;
 	let activePage = 1;
 
 	let offers = [
@@ -171,11 +171,41 @@
 
 	function switchPagination(){
 		let paginationLinks = document.querySelectorAll(".pagination .page-link");
-
+		
 		for(let link of paginationLinks){
+			
 			link.addEventListener('click', (evt)=>{
+				let chooseLink = evt.target.closest('a')
+				
 				evt.preventDefault();
-				activePage = Number(evt.target.innerHTML);
+				if(!chooseLink.hasAttribute('aria-label')){
+					activePage = Number(evt.target.innerHTML);
+					console.log(activePage);
+				}
+				else{
+					if(chooseLink.getAttribute('aria-label') == 'Previous'){
+						console.log(chooseLink.getAttribute('aria-label'));
+						if(activePage !== 1){
+							activePage = activePage - 1;
+							console.log(activePage);
+						}
+						else{
+							activePage = 1;
+						}
+					}
+					else{
+						let countPage = Math.ceil(offers.length / COUNT_OFFERS_TO_PAGE);
+						console.log(countPage);
+						if(activePage == countPage){
+							activePage = activePage;
+						}
+						else{
+							activePage = activePage + 1;
+						}
+
+					}
+				}
+				
 				renderListOffers();
 			})
 		}
@@ -194,7 +224,7 @@
 
 
 		offers.forEach((offer, index)=>{
-
+			
 			// COUNT_OFFERS_TO_PAGE - количество записей на странице
 			// activePage - выбранный номер страницы
 			// offers.length - всего записей
