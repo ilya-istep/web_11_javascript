@@ -87,7 +87,11 @@
 			renderListOffers();
 			listOffers.parentElement.innerHTML += renderPaginations();	
 			switchPagination();
-		}, 100);
+			
+		}, 2000);
+		setTimeout(()=>{
+			bodyColor();
+		}, 2000)
 	}	
 	else{
 		listOffers.innerHTML = "Нет вакансий";
@@ -246,5 +250,9 @@
 
 		document.querySelector(".list_offers").innerHTML = listOffersStr;
 	}
+	function bodyColor() {
+			let bodyColortyle = document.querySelector('body');
+			bodyColortyle = bodyColortyle.style.backgroundColor = 'var(--bg)';
+		}
 })();	
 

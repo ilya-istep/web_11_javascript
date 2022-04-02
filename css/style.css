@@ -11,13 +11,14 @@
 	font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
 }
 body {
-	background-color: var(--bg);
+	background-color: rgb(0, 0, 0, 0.5);
 	color: var(--fg);
 	font: 1em/1.5 sans-serif;
 	height: 100vh;
 	display: grid;
 	place-items: center;
 	transition: background-color 0.3s;
+	position: relative;
 }
 main {
 	padding: 1.5em 0;
@@ -33,6 +34,11 @@ main {
 	animation-timing-function: linear;
 	width: 8em;
 	height: 8em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -128px;
+	margin-top: -128px;
 }
 .pl__ring {
 	stroke: hsla(var(--hue),10%,10%,0.1);
