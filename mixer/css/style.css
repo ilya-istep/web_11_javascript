@@ -1,0 +1,74 @@
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+:root {
+	--hue: 223;
+	--bg: hsl(var(--hue),10%,90%);
+	--fg: hsl(var(--hue),10%,10%);
+	font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+}
+body {
+	background-color: var(--bg);
+	color: var(--fg);
+	font: 1em/1.5 sans-serif;
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	transition: background-color 0.3s;
+}
+main {
+	padding: 1.5em 0;
+}
+
+.mixer {
+	position: relative;
+	height: 400px;
+	width: 400px;
+}
+
+.mixer img {
+	top: 0;
+	position: absolute;
+	display: block;
+	height: 200px;
+	width: 150px;
+	background-repeat: no-repeat;
+	z-index: 1;
+	transition: 1s ease;
+}
+
+.mixer img:first-child {
+	/* background-image: url(../images/1.png); */
+	z-index: 2;
+}
+
+.mixer img:last-child {
+	/* background-image: url(../images/2.jpg); */
+}
+
+.cardAnimate {
+	animation: cardAnimate 1s ease;
+	animation-fill-mode: forwards;
+}
+
+@keyframes cardAnimate {
+	0% {
+		top: 0;
+	}
+	49% {
+		z-index: 1;
+	}
+	50% {
+		z-index: 2;
+		top: -250px;
+	}
+	100% {
+		top: 0;
+		z-index: 2;
+	}
+}
+
+
