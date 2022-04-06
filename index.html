@@ -112,7 +112,7 @@
 		let btn = document.querySelector(".preloader_button");
 		let wrap = document.querySelector(".preloader_wrap");
 
-		function buttonMove(){
+		function moveOn(){
 			btn.classList.add('button_go');
 			setTimeout(()=>{
 				document.querySelector(".preloader_button").style.display = "none";
@@ -120,7 +120,7 @@
 			},2000)
 		}
 
-		function wrapMove(){
+		function hideWrap(){
 			setTimeout(()=>{
 				document.querySelector(".preloader_wrap").style.display = "none";
 				document.querySelector(".main_content").style.display = "block";
@@ -128,8 +128,8 @@
 		}
 
 		btn.addEventListener('click', ()=>{
-			buttonMove();
-			wrapMove();
+			moveOn();
+			hideWrap();
 		})
 	</script>
 </body>
