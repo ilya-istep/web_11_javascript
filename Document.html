@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+<title>Document</title>
+	<style>
+		html{
+			width: 100%;
+		}
+		body{
+			width: 100%;
+			height: 6000px;	/* добавляет скролл, чтобы было видно работу  event.preventDefault() */
+		}
+		ul{
+			list-style: none;
+			display: flex;
+			flex-direction: row;
+			position: fixed;
+		}
+		li{
+			margin:  0 2px;
+		}
+		.links{
+			text-decoration: none;
+			outline: none;
+			color: black;
+			display:  block;
+			padding:  10px;
+			background:  #f45454;
+			border:  1px solid black;
+			display: flex;
+			align-items: center;
+			transition: 0.5s ease;
+		}
+		span{
+			margin-right: 4px;
+		}
+		.active{
+			background:  #345450;
+			border:  1px solid #345450;
+			color: #fff;
+			transition: 0.5s ease;
+		}
+		i{
+			transition: 0.5s ease;
+		}
+		.active i{
+			transform: rotate(180deg);
+			transition: 0.5s ease;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<a href="#" class="links">
+				<span>Ссылка 1</span>
+				<i class="fas fa-angle-down"></i>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="links">
+				<span>Ссылка 2</span>
+				<i class="fas fa-angle-down"></i>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="links">
+				<span>Ссылка 3</span>
+				<i class="fas fa-angle-down"></i>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="links">
+				<span>Ссылка 4</span>
+				<i class="fas fa-angle-down"></i>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="links">
+				<span>Ссылка 5</span>
+				<i class="fas fa-angle-down"></i>
+			</a>
+		</li>
+	</ul>
+
+	<script>
+		let links = document.querySelectorAll(".links");
+
+		activeLink = function(event){
+		    for (let j = 0; j < links.length; j++) {
+		    	event.preventDefault();
+		        links[j].classList.remove('active');
+		        this.classList.add('active');
+		    }
+		};
+
+		for (let j = 0; j < links.length; j++) {
+    		links[j].addEventListener('click', activeLink);
+		}
+
+		//links.forEach(link => {
+			//item.addEventListener('click', (event)=> {
+			//	event.preventDefault();
+			//	link.classList.toggle('active');
+			//});
+		//});
+	</script>
+
+</body></html>
