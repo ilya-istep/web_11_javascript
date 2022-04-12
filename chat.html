@@ -112,6 +112,7 @@
 		                    </ul>
 		                </div>
 		                <div class="chat-message clearfix">
+		                	<p class="status_write"></p>
 		                    <div class="input-group mb-0">
 		                        <div class="input-group-prepend btn_send">
 		                            <span class="input-group-text"><i class="fa fa-send"></i></span>
@@ -130,13 +131,6 @@
 		let msgs = [];
 
 
-		// let msg = {
-		// 	author: "Олег",
-		// 	date: new Date(),
-		// 	avatar: "avatar2.png",
-		// 	content: "А как сделать тень?",
-		// }
-
 		function render(msg){
 			let msgsEl = document.querySelector(".msgs");
 
@@ -150,6 +144,9 @@
 		}
 
 		let btnSendEl = document.querySelector(".btn_send");
+		let statusWriteEl = document.querySelector(".chat-message .status_write");
+		let flag = false;
+		let interval = null;
 
 		let sendOn = (evt)=>{
 			if(evt.pointerType === "mouse" || evt.keyCode == 13){
@@ -167,10 +164,55 @@
 					}
 					render(msg);
 					contentEl.value = "";
+
+					clearInterval(interval);
+					statusWriteEl.innerHTML = "";
+
 				}
 			}
 		}
 
+		let contentEl = document.querySelector(".field_content");
+		
+		contentEl.addEventListener("input", ()=>{
+			if(!flag){
+				statusWriteEl.innerHTML = "Печатает ";
+				interval = dinamicWrite();
+
+				setTimeout(()=>{
+					statusWriteEl.innerHTML = "";
+					clearInterval(interval);
+					flag = false;
+				}, 4000);
+
+				flag = true;
+			}
+		})
+
+		contentEl.addEventListener("blur", ()=>{
+			if(flag){
+				statusWriteEl.innerHTML = "";
+				flag = false;
+			}
+		})
+
+		function dinamicWrite(){
+			let step = 1;
+			let interval = setInterval(()=>{
+				if(step < 4){
+					statusWriteEl.innerHTML += ".";
+					step++;
+				}
+				else{
+					statusWriteEl.innerHTML = "Печатает ";
+					step = 1;
+				}
+				
+			}, 500);
+
+			return interval;
+		}
+		
 		btnSendEl.addEventListener('click', sendOn);
 		document.addEventListener('keypress', sendOn);
 
