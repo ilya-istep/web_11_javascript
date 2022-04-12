@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+
+
+	<script>
+		
+		/*
+		let cat = {
+
+		}
+
+
+		cat = 1;
+
+		if(typeof(cat) === 'object'){
+			console.log("+");
+		}
+		else{
+			console.log("-");
+		}
+*/
+
+		// function Cat(){
+		// 	color = null;
+		// }
+
+		// function Dog(){
+		// 	color = null;
+		// }
+
+
+		// let cat1 = new Cat();
+		// let cat2 = new Cat();
+
+
+
+		// cat1 = new Dog();
+
+		// console.log(cat1 instanceof Dog);
+
+/*
+		class Cat{
+			color = null;
+			run(){
+				console.log("run")
+			}
+		}
+
+		let cat1 = new Cat();
+
+
+		cat1.color = "white";
+*/
+
+
+		// создать класс машина со свойствами пробег, год выпуска и методами ускоряться, тормозить
+
+		// создать от этого класса два экземпляра класса (конкретные модели машин) и обратиться к их свойствам и методам
+
+
+		// class Car{
+		// 	probeg = 0;
+		// 	year = null;
+		// 	speed_max = 180;
+
+		// 	uskorenie(){
+		// 		this.speed_max
+
+		// 		this.stop();
+		// 	}
+
+		// 	stop(){
+
+		// 	}
+		// }
+
+		// let vaz_2107 = new Car();
+
+		class Users{
+			name = "";
+			avatar = "";
+			timeVisited = "";
+			sendMsg(){
+				
+			}
+		}
+
+		class Msg{
+			content = "";
+			time_create = "";
+			author = "Ivan";
+			renderMsgs(){
+				this.author = this.opredelenieAvtorstva();
+			}
+			opredelenieAvtorstva(){
+
+
+				return new Users();
+			}
+		}
+
+		class Dialog{
+			msgs = [];
+			user1 = "";
+			user2 = "";
+			renderDialog(){
+				this.user1 = new Users();
+				this.user2 = new Users();
+			}
+		}
+
+		class Chat{
+			users = null;
+			renderChat(){
+				let dialog = new Dialog();
+
+				
+
+				dialog.renderDialog();
+			}
+		}
+
+
+		let chat = new Chat();
+		chat.renderChat();
+
+
+
+
+		// class Animal{
+		// 	laps = 2;
+		// }
+
+		// class Cat extends Animal{
+			
+		// }
+
+		// class Dog extends Animal{
+			
+		// }
+
+
+		// let c1 = new Cat();
+		// c1.laps = 4;
+		// console.log(c1.laps);
+
+
+	</script>
+</body>
+</html>
