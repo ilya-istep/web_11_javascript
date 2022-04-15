@@ -3,14 +3,13 @@
 
 	let messages = [];
 
-	let userData = {
-		name: 'Олег',
-	};
-
-	let chatMessage = document.querySelector('.chat-message');
-	let sendBtn = chatMessage.querySelector('.send-btn');
-	let textInput = chatMessage.querySelector('.input-message');
+	let statusWriteElement = document.querySelector('.status-write');
+	let sendBtn = document.querySelector('.send-btn');
+	let textInput = document.querySelector('.input-message');
 	let chatWindow = document.querySelector('.chat-history > ul');
+
+	let intervalID = null;
+	let flag = false;
 
 	function addZero(num) {
 		if(num >= 10) {
@@ -25,22 +24,22 @@
 		element.scrollTo(0, element.scrollTop);
 	}
 
-	let isTyping = (event) => {
-		let isTyping = document.createElement('p');
-		
-		chatMessage.addEventListener('keypress', (event) =>{
-			isTyping.classList.add('isTyping');
-			isTyping.textContent = `${userData.name} Печатает...`;
-			chatMessage.append(isTyping);
+	function dynamicWrite() {
+		let step = 1;
+	
+		let intervalID = setInterval(() => {
+			if (step < 4) {
+				statusWriteElement.innerHTML += '.';
+				step++;
 
-			if (event.keyCode == 13) {
-				setTimeout(() => {
-					isTyping.remove();
-				}, 500);
+			} else {
+				statusWriteElement.innerHTML = 'Печатает';
+				step = 1;
+
 			}
-		}, true);
+		}, 300);
 
-		
+		return intervalID;
 	}
 
 	let sendMessage = (event) => {
@@ -49,7 +48,7 @@
 
 
 		let message = {
-			name: userData.name,
+			name: 'Mike Tyson',
 			date: `${addZero(dateMessage.getHours())}:${addZero(dateMessage.getMinutes())}`,
 			avatar: 'avatar3.png',
 			content: content
@@ -66,29 +65,43 @@
 			</li>
 			`);
 			textInput.value = '';
-			
 			scrollingBottom(chatWindow);
+
+			statusWriteElement.innerHTML = '';
+			clearInterval(intervalID);
 		}
 	}
+
+	textInput.addEventListener('input', (event) => {
+
+		if (!flag) {
+			statusWriteElement.innerHTML = 'Печатает';
+			intervalID = dynamicWrite();
+
+			setTimeout(() => {
+				statusWriteElement.innerHTML = '';
+				flag = false;
+
+				clearInterval(intervalID);
+			}, 1500);
+			
+			flag = true;
+		}
+
+	});
+
+	textInput.addEventListener('blur', (event) => {
+
+		if (flag) {
+
+			statusWriteElement.innerHTML = '';
+			flag = false;
+		}
+	});
 	
 	sendBtn.addEventListener('click', sendMessage);
 	document.addEventListener('keypress', sendMessage);
-	textInput.addEventListener('focus', isTyping);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	// textInput.addEventListener('focus', isTyping);
 
 
 
