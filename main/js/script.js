@@ -32,12 +32,6 @@ class Tabs {
 		}
 	}
 
-	render() {
-		this.tabWrapElement.innerHTML = this.renderNavigate() + this.renderBlocks();
-
-		this.switchTabs();
-	}
-
 	switchTabs() {
 		let navigationItems = document.querySelectorAll(`${this.selectorName} .navigated li`);
 
@@ -88,6 +82,11 @@ class Tabs {
 		strHTML += '</div>';
 
 		return strHTML;
+	}
+
+	render() {
+		this.tabWrapElement.innerHTML = this.renderNavigate() + this.renderBlocks();
+		this.switchTabs();
 	}
 }
 
