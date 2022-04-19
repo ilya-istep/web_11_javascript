@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <div></div>
+
+    <script>
+/*
+        let myJSON = {
+            "name": "Nikita"
+        }
+        console.log(myJSON);
+
+        let s = JSON.stringify(myJSON);
+        console.log(s);
+
+        console.log(JSON.parse(s));
+
+*/
+
+        let divEl = document.querySelector("div");
+
+
+        let request = new XMLHttpRequest();
+        request.open('GET', 'https://liblessons.ru/ajax/data2.php');
+
+         request.addEventListener('load', ()=>{
+
+            if(request.status == 200){
+                let obj = JSON.parse(request.response);
+
+                obj.forEach((el)=>{
+                    divEl.innerHTML += "<p>" + el.title + "<br>" + el.content + "</p>";
+                });
+            }
+            else{
+                console.log("error");
+            }
+
+
+        });
+        request.send();
+
+        //console.log(["text 1","text 2",null]);
+
+
+       
+
+    
+    </script>
+
+
+</body>
+</html>
