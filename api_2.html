@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div class="wrap"></div>
+
+	<script>
+
+		let p1 = new Promise((resolve, reject)=>{
+			let request = new XMLHttpRequest();
+			request.open('GET', 'https://liblessons.ru/ajax/data2.php');
+		
+			request.addEventListener('load', ()=>{
+				if(request.status == 200){
+					let obj = JSON.parse(request.response);
+					resolve(obj);
+				}
+				else{
+					console.log("error");
+				}
+			});
+			request.send();
+		});
+
+		let p2 = new Promise((resolve, reject)=>{
+			let request = new XMLHttpRequest();
+			request.open('GET', 'https://liblessons.ru/ajax/data1.php');
+		
+			request.addEventListener('load', ()=>{
+				if(request.status == 200){
+					let obj = JSON.parse(request.response);
+					resolve(obj);
+				}
+				else{
+					console.log("error");
+				}
+			});
+			request.send();
+		});
+		
+		// Promise.all([p1, p2]).then(
+		// 	(data_result)=>{
+		// 		console.log(data_result[0]);
+		// 		console.log(data_result[1]);
+		// 	}
+		// );
+
+		Promise.all([p1, p2]).then(
+			(data_result)=>{
+				render(data_result[0], data_result[1]);
+			}
+		);
+
+		function render(data1, data2){
+			let divEl = document.querySelector(".wrap");
+
+			let s = "";
+
+			for(let d of data1){
+				s+= d.title + "<br>";
+			}
+
+			for(let d of data2){
+				s+= d + "<br>";
+			}
+
+			divEl.innerHTML = s;
+		}
+
+		// let p1 = new Promise((resolve, reject)=>{
+		// 	setTimeout(() => {
+  		// 		resolve("+");
+ 		// 	}, 2000);
+		// });
+
+		// let p2 = new Promise((resolve, reject)=>{
+		// 	setTimeout(() => {
+  		// 		resolve("-");
+ 		// 	}, 3000);
+		// });
+
+		// Promise.all([p1, p2]).then(
+		// 	(data_result)=>{
+		// 		console.log(data_result[0], data_result[1]);
+		// 	}
+		// );
+
+		// p1.then((data)=>{
+		// 		console.log("+");
+		// 	}, 
+		// );
+
+		// p2.then((data)=>{
+		// 		console.log("-");
+		// 	}, 
+		// );
+
+		
+
+
+	</script> 
+</body>
+</html>
