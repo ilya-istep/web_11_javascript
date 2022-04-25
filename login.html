@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>Login: <input type="text" id="login"></p>
+    <p>Password: <input type="text" id="password"></p>
+    <button id="check">SEND</button>
+    <script>
+        document.getElementById("check").onclick = function(){
+            let login = document.getElementById("login").value;
+            let password = document.getElementById("password").value;
+
+            if(login == 'alex' && password == '775577')
+                alert('Welcome');
+            else if (login == 'petr' && password == '777')
+            alert('Welcome');    
+               
+            else   alert("неверный логин или пароль");
+                
+}
+
+
+
+
+        
+    </script>
+</body>
+</html>
