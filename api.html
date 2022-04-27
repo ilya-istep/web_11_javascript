@@ -10,7 +10,16 @@
     
     
     <div></div>
+    <script type="module">
 
+        import Request from './js/Request.js';
+        let divEl = document.querySelector("div");
+        let first_req = new Request;
+        first_req.init('GET', 'https://liblessons.ru/ajax/data1.php');
+        
+        let second_req = new Request;
+        second_req.init('GET', 'https://liblessons.ru/ajax/data2.php');
+    </script>
     <script>
 /*
         let myJSON = {
