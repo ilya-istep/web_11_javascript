@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div class="wrap">
+		<form id="data">
+			<input placeholder="Введите логин" class="login" form="data">
+			<input placeholder="Введите пароль" type="password" class="password" form="data">
+			<button type="submit" form="data" class="btn_send">Отправить</button>
+		</form>
+	</div>
+
+	<script>
+
+		let btn = document.querySelector(".btn_send");
+
+		let sendOn = (evt) =>{
+			if(evt.pointerType === "mouse" || evt.keyCode == 13){
+				evt.preventDefault();
+				let logForm = document.querySelector(".login");
+				let passForm = document.querySelector(".password");
+				let logFormContent = logForm.value.trim();
+				let passFormContent = passForm.value.trim();
+				if(logFormContent.length > 0 && passFormContent.length > 0){
+					let login = logFormContent;
+					let password = passFormContent;
+
+					let storage = {
+						"login": login,
+						"password": password,
+					};
+
+					localStorage.setItem('storage', JSON.stringify(storage));
+					document.location.href="redirrect.html";
+				}
+			}
+		}
+
+		btn.addEventListener('click', sendOn);
+		document.addEventListener('keypress', sendOn);
+
+
+
+	</script> 
+</body>
+</html>
