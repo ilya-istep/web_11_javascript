@@ -11,15 +11,15 @@ export default class Request{
         this.requestUrl = Url;
         //console.log(this.requestUrl);
         this.construct.open(this.requestType, this.requestUrl);
-        let context = this;
+        //let context = this;
         //console.log(this.construct);
         this.construct.addEventListener('load', ()=>{
-            //console.log(this.construct);
-            if(context.construct.status == 200){
+            console.log(this.construct);
+            if(this.construct.status == 200){
                 //console.log(context.construct);
 
-                let obj = JSON.parse(context.construct.response);
-                console.log(typeof obj);
+                let obj = JSON.parse(this.construct.response);
+                //console.log(typeof obj);
                 obj.forEach((el)=>{
                     console.log(el);
                     //divEl.innerHTML += "<p>" + el.title + "<br>" + el.content + "</p>";
