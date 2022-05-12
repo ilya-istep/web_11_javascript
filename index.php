@@ -1,60 +1,59 @@
-<?php	
-	session_start();
+<?php
+    // class Car{
+    //     public $speed = 180;
 
-	// print_r($_SESSION);
-	// $_SESSION['my_session'] = "123";
+    //     public function met(){
+    //         echo 1;
+    //     }
 
-	// session_destroy();
+    //     function __construct($a){
+    //         echo $a;
+    //     }
+    // }
 
-	if(isset($_GET['exit']) && $_GET['exit'] == true){
-		unset($_SESSION['user']); // обнуляет только введенные данные из сессии, а не все сессии
-		setcookie("userData", '', time() - 3600);
-		unset($_COOKIE['userData']);
-	}
+    // $car1 = new Car(10);
+    // $car1 = new Car(20);
+    // $car1->met();
+    // echo $car1->speed;
+
+    // class Car{
+    //     public $mark;
+    //     public $model;
+    //     public $maxSpeed;
+
+    //     function __construct($details){
+    //         echo "я конструктор";
+
+    //         // echo $this->mark = $details['mark']; 
+    //         // echo $this->model = $details['model'];
+    //         // echo $this->maxSpeed = $details['maxSpeed'];
+    //     }
+
+    //     function __destruct(){
+    //         // echo "<br>я деструктор";
+    //     }
+    // }
+
+    // $details = ['maxSpeed' => 180, 'mark' => "2107", 'model' => "VAZ"];
+
+    // $lada = new Car($details);
+    // // $GAZ = new Car("GAZ ", "Next " , 80);
+
+    // unset($car);
+
+    // echo "<br>123";
+
+    class Car{
+        public $mark;
+        public $model;
+        public $maxSpeed;
+        private $flag;
+
+        private function met(){
+            echo "run";
+        }
+    }
+
+    $car1 = new Car();
+    // $car1->met();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	<?php
-		if(isset($_GET['data']) && $_GET['data'] == 'error'){
-			echo "неверные данные";
-		}
-	?>
-	
-	<?php
-		if(isset($_SESSION['user']) || isset($_COOKIE['userData'])):?>
-		
-		<p>Вы вошли как
-			<?php
-				$user = (isset($_SESSION['user']))? json_decode($_SESSION['user']): json_decode($_COOKIE['userData']); // то же, что и под комментариями ниже
-				
-				// if(isset($_SESSION['user'])){
-				// 	$user = json_decode($_SESSION['user']);
-				// }
-				// else{
-				// 	$user = json_decode($_COOKIE['userData']);
-				// }
-
-				echo $user->login; // json_decode возвращает объект, а не массив, поэтому используем -> вместо =>
-			?>
-			<a href="index.php?exit=true">Exit</a>
-		</p>
-
-		<?php else: ?>
-			<form action="page.php" method="POST">
-				<input type="text" name="login" placeholder="login">
-				<input type="password" name="password" placeholder="password">
-				<label><input type="checkbox" name="saveUser" value="save">запомнить меня</label>
-				<input type="submit" value="Sign In">
-			</form>
-		<?php endif; 
-	?>
-
-</body>
-</html>
