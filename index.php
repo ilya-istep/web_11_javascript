@@ -1,59 +1,33 @@
-<?php
-    // class Car{
-    //     public $speed = 180;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<form action="obr.php" method="POST">
+		<input type="text" name="login" placeholder="login">
+		<br>
+		<input type="password" name="password"
+		placeholder="пароль">
+		<br>
+		<input type="submit" value="войти">
+	</form>
 
-    //     public function met(){
-    //         echo 1;
-    //     }
+	<?php
+		if(isset($_GET['error']) && !empty($_GET['error'])){
+			$errors = json_decode($_GET['error']);
 
-    //     function __construct($a){
-    //         echo $a;
-    //     }
-    // }
+			if(is_array($errors) && count($errors) > 0){
+				echo "<ul>";
+				foreach ($errors as $key=>$value){
+					echo "<li>$value</li>";
+				}
+				echo "</ul>";
+			}
+		}
+	?>
 
-    // $car1 = new Car(10);
-    // $car1 = new Car(20);
-    // $car1->met();
-    // echo $car1->speed;
-
-    // class Car{
-    //     public $mark;
-    //     public $model;
-    //     public $maxSpeed;
-
-    //     function __construct($details){
-    //         echo "я конструктор";
-
-    //         // echo $this->mark = $details['mark']; 
-    //         // echo $this->model = $details['model'];
-    //         // echo $this->maxSpeed = $details['maxSpeed'];
-    //     }
-
-    //     function __destruct(){
-    //         // echo "<br>я деструктор";
-    //     }
-    // }
-
-    // $details = ['maxSpeed' => 180, 'mark' => "2107", 'model' => "VAZ"];
-
-    // $lada = new Car($details);
-    // // $GAZ = new Car("GAZ ", "Next " , 80);
-
-    // unset($car);
-
-    // echo "<br>123";
-
-    class Car{
-        public $mark;
-        public $model;
-        public $maxSpeed;
-        private $flag;
-
-        private function met(){
-            echo "run";
-        }
-    }
-
-    $car1 = new Car();
-    // $car1->met();
-?>
+</body>
+</html>
