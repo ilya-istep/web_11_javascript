@@ -41,13 +41,4 @@ class Validator{
 			];
 	}
 
-	// static function stopSimbolValidator($str, $simbol){
-
-	// 	Validator::typeDataValidator($str, '?');
-
-	// 	foreach (count_chars($data, 1) as $i => $val) {
-	// 		echo "\"" , chr($i) , "\" встречается в строке $val раз(а).\n";
-	// 	}
-	// }
-
 }

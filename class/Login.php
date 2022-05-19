@@ -1,9 +1,10 @@
 <?php 
 
 include("Session.php");
-include("Validator.php");
+include("class/Validator.php");
+include("class/DB.php");
 
-class Login{
+class Login extends DB{
 
 	private $valid = true;
 
@@ -13,7 +14,7 @@ class Login{
 
 	function __construct($user){
 			
-		$validitionData = Validator::maxLengthValidator($user['login'], 5);
+		$validitionData = Validator::maxLengthValidator($user['login'], 10);
 
 		if(!$validitionData['status']){
 			$this->valid = false;
@@ -31,11 +32,13 @@ class Login{
 			$this->login = $user['login'];
 			$this->password = $user['password'];
 		}
-		else{
 
-		}
-		
-		//parent::__construct();
+		$this->select(['login' => $this->login, 'password' => $this->password]);
+
+		$auth = new SessionClass();
+		$auth->saveSession($this->login);
+		header("location: index.php");
+
 	}
 }
 

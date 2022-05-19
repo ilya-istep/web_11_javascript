@@ -1,4 +1,6 @@
 <?php 
+	session_start();
+
 	include("class/Login.php");
 
 	if(isset($_POST['login']) && 
@@ -15,6 +17,7 @@
 			$jsonError = json_encode($authObj->errors);
 			header("location: index.php?error=".$jsonError);
 		}
+
 	}
 	
 ?>
