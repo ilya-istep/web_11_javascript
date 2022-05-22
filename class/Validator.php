@@ -11,7 +11,7 @@ class Validator{
 					'msg' => 'Поле должно быть строкой'
 				];
 		}
- 	}
+	}
 
 	// $str пользовательская строка
 	// $maxLenght максимальная длина
@@ -28,6 +28,8 @@ class Validator{
 			];
 	}
 
+	// $str пользовательская строка
+	// $maxLenght максимальная длина
 	static function minLengthValidator($str, $minLenght){
 
 		Validator::typeDataValidator($str, 'string');
@@ -39,6 +41,46 @@ class Validator{
 				'status' => false,
 				'msg' => 'Минимальная длина поля '.$minLenght
 			];
+	}
+
+	// $str пользовательская строка
+	// $simbol символ, который нельзя использовать
+	static function simbolValidator($str){
+
+		Validator::typeDataValidator($str, 'string');
+
+		$simbols = ['?', '!', '^', '(', ')', '*', '<', '>'];
+		$flag = null;
+
+		foreach($simbols as $simbol){
+			if(strpos($str, $simbol) !== false){
+				$flag = false;
+				echo $flag;
+				echo "неверный символ";
+				
+				// [
+				// 	'status' => false,
+				// 	'msg' => 'Недопустимый символ'.$simbol,
+				// ];
+
+			}
+			else{
+				$flag = true;
+
+				// ['status' => true];
+			}
+		}
+
+		
+
+		return ($flag == true)? 
+			['status' => true]
+		: 
+			[
+				'status' => false,
+				'msg' => 'Недопустимый символ',
+			];
+
 	}
 
 }

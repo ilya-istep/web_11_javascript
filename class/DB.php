@@ -1,4 +1,5 @@
 <?php 
+
 	class DB{
 
 		protected function select($selectUser){
@@ -22,15 +23,14 @@
 						]
 					];
 
-			foreach ($users as $user){
+			foreach ($users as $user) {
+				if($user['login'] == $selectUser['login'] && 
+					$user['password'] == $selectUser['password']){
 
-				if($selectUser['login'] == $user['login'] && 
-				   $selectUser['password'] == $user['password']){
-					return "есть";
+					return "есть";			
 				}
 			}
+
 			return "нет";
-		}
-		
+		} 
 	}
-?>

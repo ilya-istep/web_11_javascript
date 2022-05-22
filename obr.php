@@ -17,7 +17,6 @@
 			$jsonError = json_encode($authObj->errors);
 			header("location: index.php?error=".$jsonError);
 		}
-
 	}
 	
 ?>
