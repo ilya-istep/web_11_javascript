@@ -1,15 +1,15 @@
-<?php 
+<?php
+    class Session{
+        static function createSession(){
 
-	class SessionClass{
+        }
 
-		function saveSession($login){
+        static function deleteSession(){
+            
+        }
 
-			$_SESSION['auth'] = md5($login);
-		}
-
-		function deleteSession(){
-
-		}
-	}
-
+        static function changeSession(){
+            
+        }
+    }
 ?>
