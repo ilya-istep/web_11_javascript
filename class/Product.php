@@ -1,11 +1,15 @@
 <?php
-    class Product{
-        static function buyItem(){
+    include_once 'class/DB.php';
 
+    class Product extends DB{
+
+        public function render(){
+            return $this->getProducts();
         }
 
-        static function showItemList(){
-            
+        public function getProducts(){
+            return $this->select();
         }
+
     }
 ?>
