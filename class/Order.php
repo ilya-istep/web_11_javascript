@@ -1,80 +1,73 @@
-<?php
-    session_start();
+<?php 
+	include_once 'class/Product.php';
 
-    include_once 'class/Product.php';
+	class Order extends Product{
 
-    class Order extends Product{
+		public $product_id = null;
 
-        public $product_id = null;
+		public $product_name = null;
 
-        public function __construct($product_id = null){ //конструктор всегда public
-           
-            if($product_id === null){
-                return;
-            }
-            else{
-                $this->product_id = $product_id;
-            }
+		public function __construct($product_id = null){
 
-            // print_r($this->getProducts());
+			if($product_id === null){
+				return;
+			}
+			else{
+				$this->product_id = $product_id;
+			}
 
-            if(isset($_SESSION['orders']) && 
-                is_array($_SESSION['orders']) && 
-                count($_SESSION['orders']) > 0){
+			if(isset($_SESSION['orders']) && 
+				is_array($_SESSION['orders']) && 
+				count($_SESSION['orders']) > 0){
 
-                // товары в корзине есть
+				// товары в корзине есть
+				if($this->searchProductOrder()){
+					// такой товар есть
+					$this->editProductCount();
+				}
+				else{
+					// такого товара нет
+					$this->addProduct();
+				}
+			}
+			else{
+				// корзина пустая
+				$this->addProduct();
+			}
+			
+		}
 
-                $this->editProductCount();
+		public function searchProductOrder(){
+			
+			foreach ($_SESSION['orders'] as $order) {
+				if($order['id'] == $this->product_id){
+					return true;
+				}
+			}
+			return false;
+		}
 
-                if($this->searchProductOrder()){
-                    // такой товар есть
-                }
-                else{
-                    $this->addProduct();
-                }
+		public function addProduct(){
+			$_SESSION['orders'][] = ['id' => $this->product_id, 'count' => 1];
+		}
 
-            }
-            else{
-                // корзина пустая
-                $this->addProduct();
-            }
+		public function editProductCount(){
 
-        }
+			$newDataSession = [];
 
-        public function searchProductOrder(){
-            // корзина пустая
-           
-            foreach($_SESSION['orders'] as $order){
-                if($order['id'] == $this->product_id){
-                   return true;
-                }
-            }
+			foreach ($_SESSION['orders'] as $order) {
+				if($order['id'] == $this->product_id){
+					$order['count']++;
+				}
+				$newDataSession[] = $order;
+			}
 
-            return false;
-        }
+			$_SESSION['orders'] = $newDataSession;
 
-        public function addProduct(){
-            $_SESSION['orders'][] = ['id' => $this->product_id, 'count' => 1];
-        }
+		}
 
-        public function editProductCount(){
+		public function deleteOrder(){
+			unset($_SESSION['orders']);
+		}
 
-            $newDataSession = []; 
-
-            foreach($_SESSION['orders'] as $order){
-                if($order['id'] == $this->product_id){
-                    $order['count']++;              
-                }
-                $newDataSession[] = $order; 
-            }
-
-            $_SESSION['orders'] =  $newDataSession;
-        }
-
-        public function deleteOrder(){
-            unset($_SESSION['orders']);
-        }
-
-    }
-
-?>
+	}

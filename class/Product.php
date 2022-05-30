@@ -1,15 +1,18 @@
-<?php
-    include_once 'class/DB.php';
+<?php 
 
-    class Product extends DB{
+	include_once 'class/DB.php';
 
-        public function render(){
-            return $this->getProducts();
-        }
+	class Product extends DB{
 
-        public function getProducts(){
-            return $this->select();
-        }
+		public function render(){
+			return $this->getProducts();
+		}
 
-    }
-?>
+		public function getProducts(){
+			return $this->select();
+		}
+
+	}
+
+
+

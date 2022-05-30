@@ -43,7 +43,7 @@
 					// echo count($_SESSION['orders']);
 
 					$sess = $_SESSION['orders'];
-
+					$name = $_GET['return_name'];
 					foreach($sess as $i => $value):?>
 						<p>
 							В корзине <?php echo $sess[$i]['count']; ?>шт товара <?php echo $sess[$i]['id'];?>
@@ -57,6 +57,8 @@
 
 		<a href="order.php?delete=1">Очистить корзину</a>
 
+		<!-- <?php print_r($_GET) ?> -->
+
 	</div>
 
 	<div class="wrap">
@@ -65,7 +67,7 @@
 			<div>
 				<h5><?php echo $product['name']?></h5>
 				<img src="images/<?php echo $product['image']?>" alt="">
-				<a href="order.php?product_id=<?php echo $product['id'];?>">В корзину</a>
+				<a href="order.php?product_id=<?php echo $product['id'];?>&product_name=<?php echo $product['name'];?>">В корзину</a>
 			</div>
 
 		<?php endforeach;?>
