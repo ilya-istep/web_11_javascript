@@ -12,7 +12,14 @@
 			return $this->select();
 		}
 
+		public function getProduct($productId){
+			foreach ($this->select() as $product){
+				if($product['id'] == $productId){
+					return $product;
+				}
+			}
+
+			die('Error id product');
+		}
+
 	}
-
-
-

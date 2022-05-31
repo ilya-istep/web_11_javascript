@@ -18,8 +18,8 @@
 
 			if(isset($_SESSION['orders']) && 
 				is_array($_SESSION['orders']) && 
-				count($_SESSION['orders']) > 0){
-
+				count($_SESSION['orders']) > 0)
+			{
 				// товары в корзине есть
 				if($this->searchProductOrder()){
 					// такой товар есть
@@ -66,8 +66,34 @@
 
 		}
 
+		static function writeOrderProducts(){
+			if(isset($_SESSION['orders']) && 
+				is_array($_SESSION['orders']) && 
+				count($_SESSION['orders']) > 0)
+			{
+				return $_SESSION['orders'];
+			}
+			else{
+				return [];
+			}
+
+		}
+
 		public function deleteOrder(){
 			unset($_SESSION['orders']);
+		}
+
+		static public function writeCountProducts(){
+			if(isset($_SESSION['orders'])){
+				$allCount = 0;
+				foreach($_SESSION['orders'] as $order){
+					$allCount += $order['count'];
+				}
+				return $allCount;					
+			}
+			else{
+				return 0;
+			}
 		}
 
 	}

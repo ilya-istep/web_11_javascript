@@ -1,6 +1,7 @@
 <?php 
 	session_start();
 
+	include_once 'class/Order.php';
 	include_once 'class/Product.php';
 
 	$objProducts = new Product();
@@ -12,7 +13,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Магазин</title>
 	<style>
 		.wrap{
 			display: flex;
@@ -23,7 +24,7 @@
 		}
 		.wrap > div img{
 			display: block;
-			width: 80%;
+			height: 200px;
 			margin:  0 auto;
 		}
 		.order{
@@ -37,25 +38,38 @@
 
 	<div class="order">
 
-			<?php 
-				if(isset($_SESSION['orders'])){
+		<?php 
+			// if(isset($_SESSION['orders'])){
 
-					// echo count($_SESSION['orders']);
+			// 	// echo count($_SESSION['orders']);
 
-					$sess = $_SESSION['orders'];
+			// 	$sess = $_SESSION['orders'];
 
-					foreach($sess as $i => $value):?>
-						<p>
-							В корзине <?php echo $sess[$i]['count']; ?>шт товара <?php echo $sess[$i]['id'];?>
-						</p>
-					<?php endforeach;
-				}
-				else{
-					echo "<p>В корзине 0 товаров</p>";
-				}
-			?>
+			// 	foreach($sess as $i => $value):?>
+					<!-- <p>
+						В корзине 
+						<?php// echo $sess[$i]['count']; ?>
+						шт товара 
+						<?php //echo $sess[$i]['id'];?>
+					</p> -->
+				<?php //endforeach;
+			//}
+			//else{
+			//	echo "<p>В корзине 0 товаров</p>";
+			//}
+		?>
 
-		<a href="order.php?delete=1">Очистить корзину</a>
+		<p>
+			<a href="obr.php?show_order=1">
+				В корзине
+				<?php 
+					echo Order::writeCountProducts();
+				?>
+				товаров
+			<a>
+		</p>
+
+		<a href="obr.php?delete=1">Очистить корзину</a>
 
 	</div>
 
@@ -65,7 +79,7 @@
 			<div>
 				<h5><?php echo $product['name']?></h5>
 				<img src="images/<?php echo $product['image']?>" alt="">
-				<a href="order.php?product_id=<?php echo $product['id'];?>">В корзину</a>
+				<a href="obr.php?product_id=<?php echo $product['id'];?>">В корзину</a>
 			</div>
 
 		<?php endforeach;?>
