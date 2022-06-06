@@ -4,6 +4,7 @@
 
 	class Product extends DB{
 
+
 		public function render(){
 			return $this->getProducts();
 		}
@@ -13,7 +14,7 @@
 		}
 
 		public function getProduct($productId){
-			foreach ($this->select() as $product){
+			foreach ($this->select() as $product) {
 				if($product['id'] == $productId){
 					return $product;
 				}
@@ -23,3 +24,6 @@
 		}
 
 	}
+
+
+

@@ -5,8 +5,6 @@
 
 		public $product_id = null;
 
-		public $product_name = null;
-
 		public function __construct($product_id = null){
 
 			if($product_id === null){
@@ -16,19 +14,14 @@
 				$this->product_id = $product_id;
 			}
 
+
 			if(isset($_SESSION['orders']) && 
 				is_array($_SESSION['orders']) && 
-				count($_SESSION['orders']) > 0)
-			{
-				// товары в корзине есть
-				if($this->searchProductOrder()){
-					// такой товар есть
-					$this->editProductCount();
-				}
-				else{
-					// такого товара нет
-					$this->addProduct();
-				}
+				count($_SESSION['orders']) > 0 && 
+				$this->searchProductOrder()){
+
+				$this->editProductCount();
+	
 			}
 			else{
 				// корзина пустая
@@ -66,30 +59,51 @@
 
 		}
 
+		public function newProductCount($newCount){
+
+			$newDataSession = [];
+
+			foreach ($_SESSION['orders'] as $order) {
+				$order['count'] = $newCount;
+				$newDataSession[] = $order;
+			}
+
+			$_SESSION['orders'] = $newDataSession;
+
+			// $_SESSION['orders'] = $sess;
+			// foreach ($sess as $index => $value) {
+			// 	if($sess[$index] == $this->product_id){
+
+			// 	}
+			// }
+
+		}
+
 		static function writeOrderProducts(){
 			if(isset($_SESSION['orders']) && 
 				is_array($_SESSION['orders']) && 
-				count($_SESSION['orders']) > 0)
-			{
+				count($_SESSION['orders']) > 0){
+
 				return $_SESSION['orders'];
 			}
 			else{
 				return [];
 			}
-
 		}
 
 		public function deleteOrder(){
 			unset($_SESSION['orders']);
 		}
 
-		static public function writeCountProducts(){
+
+		static public function writeCountProductOrder(){
+
 			if(isset($_SESSION['orders'])){
 				$allCount = 0;
 				foreach($_SESSION['orders'] as $order){
 					$allCount += $order['count'];
 				}
-				return $allCount;					
+				return $allCount;
 			}
 			else{
 				return 0;

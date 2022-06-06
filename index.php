@@ -13,7 +13,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Магазин</title>
+	<title>Document</title>
 	<style>
 		.wrap{
 			display: flex;
@@ -24,7 +24,7 @@
 		}
 		.wrap > div img{
 			display: block;
-			height: 200px;
+			width: 80%;
 			margin:  0 auto;
 		}
 		.order{
@@ -38,39 +38,22 @@
 
 	<div class="order">
 
-		<?php 
-			// if(isset($_SESSION['orders'])){
-
-			// 	// echo count($_SESSION['orders']);
-
-			// 	$sess = $_SESSION['orders'];
-
-			// 	foreach($sess as $i => $value):?>
-					<!-- <p>
-						В корзине 
-						<?php// echo $sess[$i]['count']; ?>
-						шт товара 
-						<?php //echo $sess[$i]['id'];?>
-					</p> -->
-				<?php //endforeach;
-			//}
-			//else{
-			//	echo "<p>В корзине 0 товаров</p>";
-			//}
-		?>
-
-		<p>
+		<p> 
 			<a href="obr.php?show_order=1">
 				В корзине
 				<?php 
-					echo Order::writeCountProducts();
+
+					echo Order::writeCountProductOrder();
+
+
+					// echo "<pre>";
+					// print_r($_SESSION['orders']);
+					// echo "</pre>";
 				?>
-				товаров
+				 товаров
 			<a>
 		</p>
-
 		<a href="obr.php?delete=1">Очистить корзину</a>
-
 	</div>
 
 	<div class="wrap">
