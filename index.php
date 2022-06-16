@@ -1,69 +1,31 @@
-<?php
-    $obj = new mysqli('localhost', 'root', '', 'web11_db_slet');
+<?php 
 
-     function selectData($obj){
+    if(isset($_POST['search']) && !empty($_POST['search'])){
+        $connect = new mysqli('localhost', 'root', '', 'web11_db_slet');
 
-        if(isset($_GET['sort_asc']) && $_GET['sort_asc'] == 1){
-            $sql = 'SELECT id, name FROM `lang` ORDER BY name DESC';
-        }
-        else{
-            $sql = 'SELECT id, name FROM `lang` ORDER BY name ASC';
-        }
+        $sql = "SELECT * FROM `product` WHERE name LIKE '%".$_POST['search']."%'";
 
-        $sourse = $obj->query($sql);
+        $result = $connect->query($sql);
         $data = [];
-        while($row = $sourse->fetch_array(MYSQLI_ASSOC)){
+
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
             $data[] = $row;
         }
-        return $data;
-    }
 
-    if(isset($_GET['lang_name'])){
-        $lang = $_GET['lang_name'];
-        $data = selectData($obj);
-        $flag = false;
-        foreach($data as $value){
-            if($value['name'] == $lang){
-                $flag = true;
-                break;
-            }
+        echo "<ul>";
+        foreach($data as $product){
+            echo "<li>{$product['name']}</li>";
         }
-        if(!$flag){
-            $sql = 'INSERT INTO `lang` (name) VALUES(\''.$lang.'\')';
-            $obj->query($sql);
-        // header("location: index.php");
-        }
+        echo "</ul>";
     }
-
-    if(isset($_POST['lang']) && isset($_POST['id'])){
-        $sql = 'UPDATE `lang` SET name = \''.$_POST['lang'].'\' WHERE id = '.$_POST['id'];
-        $obj->query($sql);
-    }
-
-    if(isset($_GET['lang_delete'])){
-        $sql = 'DELETE FROM `lang` WHERE id = '.$_GET['lang_delete'];
-        $obj->query($sql);
-    }
-
-    $data = selectData($obj);
-
-    echo "<ul>";
-    foreach($data as $value){
-        echo "<li>{$value['name']}
-        <a href='index.php?lang_delete={$value['id']}'> удалить</a>
-        <a href='update.php?lang_update={$value['id']}'> обновить</a>
-        </li>";
-    }
-    echo "</ul>";
+ 
 ?>
 
-<form action="index.php" method="GET">
-    <input type="text" placeholder="Введите язык" name="lang_name">
-    <input type="submit" value="Добавить">
+<form action="index.php" method="POST">
+    <input type="text" name="search">
+    <input type="submit" value="найти">
 </form>
 
-<form action="index.php" method="GET">
-    <input type="radio" name="sort_asc" value="0" checked>По возрастанию
-    <input type="radio" name="sort_asc" value="1">По убыванию
-    <input type="submit" name="отсортировать">
-</form>
+ <!-- SELECT g.name as g_name, s.name as sportsman_name FROM `groups` g INNER JOIN `sportsmens` s ON s.groups_id = g.id WHERE g.coach_id is NULL; -->
+
+ <!-- SELECT g.name as g_name, c.name as coach_name FROM `groups` g INNER JOIN `coach` c ON g.coach_id = c.id INNER JOIN `sportsmens` s ON s.groups_id != g.id-->
