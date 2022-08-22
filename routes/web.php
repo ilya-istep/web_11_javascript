@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,28 @@ use App\Http\Controllers\IndexController;
 |
 */
 
-Route::get('/', [IndexController::class, 'indexAction']);
 
-Route::get('/category', [IndexController::class, 'categoryAction']);
 
-Route::get('/product', [IndexController::class, 'productAction']);
+Route::controller(IndexController::class)->group(function () {
+	Route::get('/', 'indexAction');
+	Route::get('/category/{id}', 'categoryAction', function($id){
+		return $id;
+	});
+	Route::get('/product', 'productAction');
+	Route::get('/cart', 'cartAction');
+	Route::get('/cabinet', 'cabinetAction');
+});
 
-Route::get('/cart', [IndexController::class, 'cartAction']);
 
-Route::get('/cabinet', [IndexController::class, 'cabinetAction']);
+Route::controller(AdminController::class)->group(function () {
+	Route::get('/admin', 'indexAction')->name('dashboard');
+	Route::get('/admin/login', 'loginAction')->name('login');
+	Route::get('/admin/logout', 'logoutAction')->name('logout');
+	Route::post('/admin/login-request', 'loginrequestAction');
+	Route::get('/admin/category', 'categoryAction')->name('admin-category');
+	Route::post('/admin/add-category', 'addcategoryAction');
+	Route::post('/admin/delete-category', 'deletecategoryAction');
 
+	Route::get('/admin/products-list', 'productslistAction')->name('admin-products-list');
+	Route::get('/admin/add-product', 'addproductAction')->name('admin-add-product');
+});

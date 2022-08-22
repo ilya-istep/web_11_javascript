@@ -67,13 +67,13 @@
                     <div class="row shop_wrapper grid_3">
 
 
-                        @foreach($products as $product)
+                        @foreach($category->products as $product)
                             <!-- Single Product Start -->
                             <div class="col-lg-4 col-md-4 col-sm-6 product">
                                 <div class="product-inner">
                                     <div class="thumb">
                                         <a href="single-product.html" class="image">
-                                            <img class="fit-image" src="assets/images/products/medium-product/1.png" alt="Product">
+                                            <img class="fit-image" src="/assets/images/{{ $product->img }}" alt="Product">
                                         </a>
                                         <span class="badges">
                                                 <span class="sale">-18%</span>
