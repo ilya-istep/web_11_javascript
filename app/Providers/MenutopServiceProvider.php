@@ -1,21 +1,20 @@
-<?php 
+<?php
+    namespace App\Providers;
 
-	namespace App\Providers;
+    use Illuminate\Support\Facades\View;
+    use Illuminate\Support\ServiceProvider;
+    use App\Models\Category;
 
-	use Illuminate\Support\Facades\View;
-	use Illuminate\Support\ServiceProvider;
+    class MenutopServiceProvider extends ServiceProvider{
+        public function boot()
+        {
+            View::composer('layout/default', function($view){
 
-	use App\Models\Category;
+                $categories = Category::get();
 
-	class MenutopServiceProvider extends ServiceProvider{
+                $view->with('widget_menu_top', view('providers.menutop', compact('categories')));
+            });
+        }
 
-		public function boot()
-	    {
-	        View::composer('layouts/default', function($view){
-
-	        	$categories = Category::get();
-
-	            $view->with('widget_menu_top', view('providers.menutop', compact('categories')));
-	        });
-	    }
-	}
+    }
+?>

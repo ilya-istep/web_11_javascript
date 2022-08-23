@@ -1,12 +1,13 @@
-<?php 
-	namespace App\Models;
+<?php
+    namespace App\Models;
+    use Illuminate\Support\Facades\DB;
 
-	use Illuminate\Support\Facades\DB;
+    class Page{
+        static function select(){
+            return DB::select('SELECT * FROM `page` WHERE id = 1');
+        }
+    }
 
-	class Page{
 
-		static function select(){
-			return DB::select('SELECT * FROM `page` WHERE id = 1');
-		}
-
-	}
+    
+?>

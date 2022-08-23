@@ -17,18 +17,18 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $data = [];
-        for($i = 0; $i <= 9; $i++){
+
+        for($i =0; $i <= 9; $i++){
+
             $product = [
                 'name' => Str::random(40),
                 'price' => 1000,
                 'old_price' => 2000,
                 'category_id' => 3,
-                'img' => '0.jpg'
             ];
 
             $data[] = $product;
         }
-
 
         DB::table('products')->insertOrIgnore($data);
     }

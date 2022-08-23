@@ -1,22 +1,20 @@
-<?php 
+<?php
+    namespace App\Providers;
 
-	namespace App\Providers;
+    use Illuminate\Support\Facades\View;
+    use Illuminate\Support\ServiceProvider;
+    use App\Models\Widget;
 
-	use Illuminate\Support\Facades\View;
-	use Illuminate\Support\ServiceProvider;
+    class SubscribeServiceProvider extends ServiceProvider{
+        public function boot()
+        {
+            View::composer('layout/default', function($view){
 
-	use App\Models\Widget;
+                $data = Widget::where('id', 1)->first();
 
-	class SubscribeServiceProvider extends ServiceProvider{
+                $view->with('widget', view('providers.subscribe', compact('data')));
+            });
+        }
 
-		public function boot()
-	    {
-	        View::composer('layouts/default', function($view){
-
-
-	        	$data = Widget::where('id', 1)->first();
-
-	            $view->with('widget', view('providers.subscribe', compact('data')));
-	        });
-	    }
-	}
+    }
+?>

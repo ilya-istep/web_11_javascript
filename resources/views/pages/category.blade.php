@@ -1,10 +1,7 @@
-
-
-@extends('layouts/'.$template)
-
+@extends('layout.'.$template)
 
 @section('content')
-    <div class="section breadcrumb-area bg-name-bright">
+<div class="section breadcrumb-area bg-name-bright">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -19,7 +16,6 @@
             </div>
         </div>
     </div>
-
     <div class="section section-margin">
         <div class="container">
             <div class="row flex-row-reverse">
@@ -67,61 +63,7 @@
                     <div class="row shop_wrapper grid_3">
 
 
-                        @foreach($category->products as $product)
-                            <!-- Single Product Start -->
-                            <div class="col-lg-4 col-md-4 col-sm-6 product">
-                                <div class="product-inner">
-                                    <div class="thumb">
-                                        <a href="single-product.html" class="image">
-                                            <img class="fit-image" src="/assets/images/{{ $product->img }}" alt="Product">
-                                        </a>
-                                        <span class="badges">
-                                                <span class="sale">-18%</span>
-                                        </span>
-                                        <div class="action-wrapper">
-                                            <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quickview"><i class="ti-plus"></i></a>
-                                            <a href="wishlist.html" class="action wishlist" title="Wishlist"><i class="ti-heart"></i></a>
-                                            <a href="cart.html" class="action cart" title="Cart"><i class="ti-shopping-cart"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h5 class="title"><a href="single-product.html">{{ $product->name }}</a></h5>
-                                        <span class="rating">
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                            </span>
-                                        <span class="price">
-                                            <span class="new">{{ $product->price }}</span>
-                                            @if($product->old_price)
-                                                <span class="old">{{ $product->old_price }}</span>
-                                            @endif
-                                        </span>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
-                                        <!-- Cart Button Start -->
-                                        <div class="cart-btn action-btn">
-                                            <div class="action-cart-btn-wrapper d-flex">
-                                                <div class="add-to_cart">
-                                                    <a class="btn btn-primary btn-hover-dark rounded-0" href="cart.html">Add to cart</a>
-                                                </div>
-                                                <a href="wishlist.html" title="Wishlist" class="action"><i class="ti-heart"></i></a>
-                                                <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quickview"><i class="ti-plus"></i></a>
-                                            </div>
-                                        </div>
-                                        <!-- Cart Button End -->
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-
-
-
-
-
-
-
+                    @foreach($category->products as $product)
                         <!-- Single Product Start -->
                         <div class="col-lg-4 col-md-4 col-sm-6 product">
                             <div class="product-inner">
@@ -129,8 +71,10 @@
                                     <a href="single-product.html" class="image">
                                         <img class="fit-image" src="assets/images/products/medium-product/1.png" alt="Product">
                                     </a>
-                                    <span class="badges">
-                                            <span class="sale">-18%</span>
+                                    <span class="badges"> 
+                                        @if($product->old_price)
+                                            <span class="sale">-{{ intval($product->price / $product->old_price * 100) }} %</span>
+                                        @endif         
                                     </span>
                                     <div class="action-wrapper">
                                         <a href="#/" class="action quickview" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quickview"><i class="ti-plus"></i></a>
@@ -139,7 +83,7 @@
                                     </div>
                                 </div>
                                 <div class="content">
-                                    <h5 class="title"><a href="single-product.html">An Animal Album</a></h5>
+                                    <h5 class="title"><a href="single-product.html">{{ $product->name }}</a></h5>
                                     <span class="rating">
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
@@ -148,8 +92,10 @@
                                             <i class="fa fa-star-o"></i>
                                         </span>
                                     <span class="price">
-                                            <span class="new">$80.50</span>
-                                    <span class="old">$85.80</span>
+                                        <span class="new">₽{{ $product->price }}</span>
+                                        @if($product->old_price)
+                                            <span class="old">₽{{ $product->old_price }}</span>
+                                        @endif
                                     </span>
                                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
                                     <!-- Cart Button Start -->
@@ -167,6 +113,7 @@
                             </div>
                         </div>
                         <!-- Single Product End -->
+                    @endforeach
 
                         <!-- Single Product Start -->
                         <div class="col-lg-4 col-md-4 col-sm-6 product">
@@ -272,7 +219,7 @@
                                     </div>
 
                                     <div class="countdown-area">
-                                        <div class="countdown-wrapper" data-countdown="2028/12/28"><div class="single-countdown"><span class="single-countdown_time">2367</span><span class="single-countdown_text">Days</span></div><div class="single-countdown"><span class="single-countdown_time">03</span><span class="single-countdown_text">Hours</span></div><div class="single-countdown"><span class="single-countdown_time">32</span><span class="single-countdown_text">Mins</span></div><div class="single-countdown"><span class="single-countdown_time">34</span><span class="single-countdown_text">Secs</span></div></div>
+                                        <div class="countdown-wrapper" data-countdown="2028/12/28"><div class="single-countdown"><span class="single-countdown_time">2367</span><span class="single-countdown_text">Days</span></div><div class="single-countdown"><span class="single-countdown_time">03</span><span class="single-countdown_text">Hours</span></div><div class="single-countdown"><span class="single-countdown_time">28</span><span class="single-countdown_text">Mins</span></div><div class="single-countdown"><span class="single-countdown_time">12</span><span class="single-countdown_text">Secs</span></div></div>
                                     </div>
                                 </div>
                                 <div class="content">
@@ -859,6 +806,4 @@
             </div>
         </div>
     </div>
-
 @endsection
-

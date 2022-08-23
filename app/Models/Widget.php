@@ -1,11 +1,10 @@
-<?php 
+<?php
+    namespace App\Models;
+    use Illuminate\Database\Eloquent\Model;
+
+    class Widget extends Model{
+       protected $table = 'widgets';
+    }
 
 
-	namespace App\Models;
- 
-	use Illuminate\Database\Eloquent\Model;
-	 
-	class Widget extends Model
-	{
-	    protected $table = 'widgets';
-	}
+?>

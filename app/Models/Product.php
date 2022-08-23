@@ -1,18 +1,15 @@
-<?php 
-
-
-	namespace App\Models;
+<?php
+    namespace App\Models;
  
-	use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Model;
+     
+    class Product extends Model
+    {
+        protected $table = 'products';
 
-	 
-	class Product extends Model
-	{
-	    protected $table = 'products';
+        public function category()
+        {
+            return $this->belongsTo(Category::class, 'category_id'); // или App\Models\Category вместо Category::class
+        }
+    }
 
-
-	    public function category()
-	    {
-	        return $this->belongsTo(Category::class, 'category_id');
-	    }
-	}

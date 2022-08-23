@@ -6,11 +6,11 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" />
+  <link rel="icon" href="/assets/images/favicon-32x32.png" type="image/png" />
   <!-- Bootstrap CSS -->
   <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/assets/css/bootstrap-extended.css" rel="stylesheet" />
-  <link href="/assets/css/style_template.css" rel="stylesheet" />
+  <link href="/assets/css/style_admin.css" rel="stylesheet" />
   <link href="/assets/css/icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -39,8 +39,8 @@
                   <div class="card-body p-4 p-sm-5">
                     <h5 class="card-title">Sign In</h5>
                     <p class="card-text mb-5">See your growth and get consulting support!</p>
-                    <form class="form-body" action="/admin/login-request" method="POST">
-                      @csrf
+                    <form class="form-body" action="/admin/login_request" method="POST">
+                        @csrf <!-- токен -->
                       <div class="d-grid">
                         <a class="btn btn-white radius-30" href="javascript:;"><span class="d-flex justify-content-center align-items-center">
                             <img class="me-2" src="/assets/images/icons/search.svg" width="16" alt="">

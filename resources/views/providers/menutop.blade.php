@@ -16,7 +16,7 @@
                     <h4 class="mega-menu-title">Категории</h4>
                     <ul class="m-b-n10">
                         @foreach($categories as $category)
-                            <li><a href="{{ url('/category', [$category->id]) }}">{{ $category->name }} </a></li>
+                            <li><a href="{{ url('/category', $category->id) }}">{{ $category->name }}</a></li>
                         @endforeach
                     </ul>
                 </li>
@@ -45,7 +45,7 @@
                 <li class="mega-menu-col">
                     <div class="megamenu-image">
                         <a href="shop.html">
-                            <img class="fit-image" src="assets/images/header/mega-menu.png" alt="Megamenu Image">
+                            <img class="fit-image" src="//assets/images/header/mega-menu.png" alt="Megamenu Image">
                         </a>
                     </div>
                 </li>
