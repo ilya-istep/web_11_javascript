@@ -33,8 +33,8 @@ Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/products-list', 'productslistAction')->name('admin-products-list'); 
         Route::get('/admin/add-product', 'addproductAction')->name('admin-add-product');
         Route::post('/admin/add-category', 'addcategoryAction');
-    
     //});
+    
     Route::get('/admin/login', 'loginAction')->name('login'); // name для редирректа при неправильном пароле
     Route::get('/admin/logout', 'logoutAction'); 
     Route::post('/admin/login_request', 'loginrequestAction');

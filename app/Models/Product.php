@@ -7,6 +7,8 @@
     {
         protected $table = 'products';
 
+        // protected $hidden = ['price', 'count'];
+
         public function category()
         {
             return $this->belongsTo(Category::class, 'category_id'); // или App\Models\Category вместо Category::class
