@@ -1,21 +1,4 @@
-.Product{
-  width: 30%;
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin: 30px 20px;
-}
-
-.ProductsList{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.App{
-  width: 1000px;
-  margin: 0 auto;
-}
-
-/* .App {
+.App {
   text-align: center;
 }
 
@@ -52,4 +35,4 @@
   to {
     transform: rotate(360deg);
   }
-} */
+}
